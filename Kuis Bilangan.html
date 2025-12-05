@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kuis Interaktif Quizizz - Materi Bilangan</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+:root{
+  --accent:#c2185b;
+  --accent-light:#c2185b;
+  --muted:#666;
+  --card:#fff;
+  --bg:#f4f7fb;
+}
+
+/* === Global === */
+body {
+  font-family:"Poppins",sans-serif;
+  background:var(--bg);
+  margin:0;
+  color:#222;
+}
+
+ /* ==== HEADER BARU ==== */
+  header{
+    background: linear-gradient(90deg, #ec407a, #ab47bc, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 5px solid rgba(255,255,255,0.4);
+    animation: slideDown 1s ease-in-out;
+}
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+header h3 {
+  margin: 8px 0;
+  font-weight: 500;
+}
+header p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+}
+
+/* === NAVBAR === */
+nav {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 5%;
+  border-bottom: 4px solid #c2185b;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+nav ul li a.active {
+  background: #fff;
+  color: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* === INSTRUKSI === */
+.instructions {
+  background: #e3f2fd;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 30px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.instructions h2 {
+  margin-top: 0;
+  color: var(--accent);
+  text-align: center;
+}
+.instructions ul, .instructions ol {
+  line-height: 1.7;
+}
+.instructions ul li {
+  margin-bottom: 10px;
+}
+.instructions ol li {
+  margin-bottom: 6px;
+}
+
+/* === QUIZ === */
+.quiz-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+  padding: 20px;
+}
+iframe {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  width: 80%;
+  max-width: 900px;
+  height: 600px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  iframe {
+    width: 95%;
+    height: 480px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <h1>Kuis Interaktif: Quizizz</h1>
+  <h3>Materi Bilangan – Perkalian dan Pembagian Bilangan Cacah Sampai 100.000</h3>
+  <p>Latih pemahamanmu tentang Perkalian dan Pembagian Bilangan Cacah Sampai 100.000 melalui permainan interaktif yang menyenangkan!</p>
+</header>
+
+<!-- ===== NAVIGASI ===== -->
+<nav>
+  <ul>
+    <li><a href="Index.html"><i class="bi bi-house-door-fill"></i>Beranda</a></li>
+    <li><a href="Materi KPK.html"><i class="bi bi-123"></i>Materi Bilangan</a></li>
+    <li><a href="Materi Geometri.html"><i class="bi bi-triangle"></i>Materi Geometri</a></li>
+    <li><a href="Kuis.html" class="active"><i class="bi bi-puzzle-fill"></i>Kuis Bilangan</a></li>
+    <li><a href="Kuis Geometri.html"><i class="bi bi-lightning-fill"></i>Kuis Geometri</a></li>
+    <li><a href="Evaluasi.html"><i class="bi bi-check-circle-fill"></i>Evaluasi Bilangan</a></li>
+    <li><a href="Evaluasi Geometri.html"><i class="bi bi-award-fill"></i>Evaluasi Geometri</a></li>
+  </ul>
+</nav>
+
+<!-- ===== SCRIPT ACTIVE MENU ===== -->
+<script>
+  const currentPage = window.location.pathname.split("/").pop();
+  document.querySelectorAll("nav ul li a").forEach(link=>{
+    if(link.getAttribute("href")===currentPage){
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<!-- ===== PETUNJUK KUIS ===== -->
+<div class="instructions">
+  <h2>📌 Petunjuk Pengerjaan Kuis</h2>
+  <ul style="list-style-type: none; padding-left: 0;">
+    <li>1. Baca dan pahami materi sebelum mengerjakan kuis.</li>
+    <li>2. Jawablah setiap pertanyaan dengan teliti dan pilih jawaban terbaik.</li>
+    <li>3 Setelah selesai, simpan atau screenshot hasil nilai kamu.</li>
+    <li>4. Pastikan koneksi internet stabil saat mengerjakan kuis.</li>
+    <li>5. Jika mengalami kendala, minta bantuan guru atau teman.</li>
+  </ul>
+  <p style="text-align:center; color:#c2185b; font-weight:600;">
+    Selamat mencoba dan semoga skor kamu tinggi! 🌟
+  </p>
+</div>
+
+<!-- ===== KUIS INTERAKTIF ===== -->
+<div class="quiz-wrapper">
+  <iframe src="https://wayground.com/embed/quiz/6910bd3b5ce90f3eca026f8a" allowfullscreen></iframe>
+</div>
+
+</body>
+</html>

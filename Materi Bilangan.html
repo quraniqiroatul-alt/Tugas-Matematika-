@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi KPK & LKPD Interaktif</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+:root{
+   --accent:#eb61bd;
+  --accent-light:#c01ea5;
+  --muted:#666;
+  --card:#fff;
+  --bg:#f4f7fb;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #111;
+  background: url("img/Background MTK.webp") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Overlay lembut agar teks tetap terbaca */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+/* Supaya semua elemen tetap di atas background */
+main, header, nav, footer, section {
+  position: relative;
+  z-index: 1;
+}
+  /* ==== HEADER BARU ==== */
+  header{
+    background: linear-gradient(90deg, #ec407a, #ab47bc, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 5px solid rgba(255,255,255,0.4);
+    animation: slideDown 1s ease-in-out;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+header h3 {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+header p {
+  margin: 10px 0 0;
+  font-size: 1rem;
+}
+
+/* === Navigasi === */
+nav {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 5%;
+  border-bottom: 4px solid #eb61bd;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+nav ul li a:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.08);
+}
+
+nav ul li a.active {
+  background: #fff;
+  color: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* === Container Utama === */
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(31,41,55,0.06);
+  overflow: visible;
+}
+
+/* === Perbaikan Pohon Faktor === */
+.tree-wrapper {
+  display: flex;
+  gap: 30px;
+  margin-top: 28px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+.tree-container {
+  position: relative;
+  width: 340px;
+  min-height: 500px;
+  overflow: visible;
+}
+.tree {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  background: linear-gradient(180deg, rgba(30,136,229,0.03), transparent);
+  border-radius: 8px;
+  padding: 8px;
+  overflow: visible;
+}
+.line {
+  position: absolute;
+  background: #eb61bd;
+  z-index: 1;
+}
+.line.vertical { width: 3px; }
+.line.horizontal { height: 3px; }
+.node {
+  position: absolute;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* === Video YouTube di tengah === */
+iframe {
+  display: block;
+  margin: 18px auto;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 700px;
+  height: 360px;
+  border: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+  /* === Sub Container untuk Setiap Materi === */
+  .sub-container {
+    background-color: #e3f2fd;          /* Biru lembut */
+    border-left: 6px solid #eb61bd;     /* Garis aksen biru tua di kiri */
+    border-radius: 14px;                /* Sudut melengkung lembut */
+    padding: 20px 25px;                 /* Ruang dalam */
+    margin: 30px 0;                     /* Jarak antar materi */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Bayangan lembut */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Efek saat diarahkan kursor */
+  .sub-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+
+  /* Judul di dalam sub container */
+  .sub-container h3 {
+    color: #eb61bd;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  /* Paragraf dan teks umum */
+  .sub-container p {
+    color: #212121;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  /* Contoh blok kode atau amatan */
+  .sub-container pre {
+    background-color: #bbdefb;
+    padding: 10px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+  }
+
+  /* Contoh bagian penting */
+  .highlight-box {
+    background-color: #eb61bd;
+    border-left: 5px solid #eb61bd;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+</style>
+<style>
+/* ===✨ STYLE KHUSUS UNTUK ALAT BANTU INTERAKTIF === */
+
+/* 🎈 Kotak Kontrol Input */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.controls input[type="number"] {
+  padding: 10px 14px;
+  border: 2px solid #c01ea5;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #c01ea5;
+  background: #e3f2fd;
+  transition: all 0.3s ease;
+}
+.controls input[type="number"]:focus {
+  outline: none;
+  border-color: #c01ea5;
+  background: #bbdefb;
+}
+
+/* Tombol cerah dan anak-anak */
+.controls button {
+  background: linear-gradient(90deg, #42a5f5, #c01ea5;;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.controls button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+/* 🎲 Kotak hasil */
+.result-box {
+  background: #e3f2fd;
+  border: 2px dashed #c01ea5;
+  padding: 15px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #c01ea5;
+  transition: 0.3s;
+}
+.result-box:hover {
+  background: #bbdefb;
+  transform: scale(1.02);
+}
+
+/* 🌳 Pohon Faktor — rapatkan jarak dan perhalus transisi */
+.tree-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;           /* sebelumnya 30px → dikurangi */
+  margin: 15px auto;   /* sebelumnya 30px → dikurangi */
+  padding: 15px;       /* sebelumnya 20–30px → dikurangi */
+  background: linear-gradient(180deg, #e3f2fd, #bbdefb);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tree-container {
+  position: relative;
+  width: 320px;
+  min-height: 280px;  /* cukup untuk faktor kecil */
+  overflow: visible;
+}
+
+/* 🎯 Rapatkan area bawah antara pohon faktor dan LKPD */
+.tree-wrapper + .card {
+  margin-top: 25px !important; /* sebelumnya bisa 60–80px tergantung default */
+}
+
+/* Tambahan: rapatkan semua <hr> agar tidak terlalu jauh */
+hr {
+  margin: 20px 0 !important; /* sebelumnya 30px atau lebih */
+}
+
+
+.node {
+  position: absolute;
+  background: #42a5f5;
+  color: white;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+.node:hover {
+  transform: scale(1.15);
+  background: #1e88e5;
+}
+
+/* Garis penghubung antar node */
+.line {
+  position: absolute;
+  background: #c01ea5;
+}
+.line.vertical {
+  width: 3px;
+}
+.line.horizontal {
+  height: 3px;
+}
+
+/* 🎉 Kotak KPK */
+.kpk-box {
+  background: #fff8e1;
+  border: 2px dashed #ffb300;
+  color: #f57f17;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* 🧩 Tampilan Youtube */
+iframe {
+  display: block;
+  margin: 20px auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Matematika Kelas 6</h1>
+  <h3>Materi Bilangan: Perkalian dan pembagian Bilangan Cacah</h3>
+  <p>Pembelajaran interaktif untuk memahami konsep Bilangan Cacah dengan menyenangkan!</p>
+</header>
+
+<nav>
+    <ul>
+      <li><a href="Index.html"><i class="bi bi-house-door-fill"></i>Beranda</a></li>
+      <li><a href="Materi Bilangan.html" class="active"><i class="bi bi-123"></i>Materi Bilangan</a></li>
+      <li><a href="Materi Geometri.html"><i class="bi bi-triangle"></i>Materi Geometri</a></li>
+      <li><a href="Kuis Bilangan.html"><i class="bi bi-puzzle-fill"></i>Kuis Bilangan</a></li>
+      <li><a href="Kuis Geometri.html"><i class="bi bi-lightning-fill"></i>Kuis Geometri</a></li>
+      <li><a href="Evaluasi Bilangan.html"><i class="bi bi-check-circle-fill"></i>Evaluasi Bilangan</a></li>
+      <li><a href="Evaluasi Geometri.html"><i class="bi bi-award-fill"></i>Evaluasi Geometri</a></li>
+    </ul>
+  </nav>
+
+<script>
+const currentPage = window.location.pathname.split("/").pop();
+document.querySelectorAll("nav ul li a").forEach(link=>{
+  if(link.getAttribute("href")===currentPage){
+    link.classList.add("active");
+  }
+});
+</script>
+
+<!-- === Mulai konten utama === -->
+<div class="container">
+<h3>🎯 Capaian Pembelajaran</h3>
+<ul>
+Menunjukkan pemahaman dan intuisi bilangan 
+(number sense) pada bilangan cacah sampai 1.000.000; membaca, menulis, menentukan nilai tempat, 
+membandingkan, mengurutkan, melakukan komposisi dan dekomposisi bilangan; menyelesaikan masalah yang berkaitan dengan uang; 
+melakukan pengurangan, <mark>perkalian</mark>, penjumlahan, dan <mark>pembagian bilangan cacah sampai 100.000</mark>; serta
+menyelesaikan masalah yang berkaitan dengan KPK dan FPB.
+</ul>
+
+<h3>🎯 Tujuan Pembelajaran</h3>
+<ul>
+<li>Peserta didik dapat menentukan hasil perkalian hingga 100.000 menggunakan cara bersusun ke bawah dengan benar.</li>
+<li>Peserta didik dapat menentukan hasil pembagian hingga 100.000 menggunakan cara bersusun ke bawah dengan benar.</li>
+<li>Peserta didik dapat memecahkan soal cerita yang melibatkan perkalian dan pembagian dalam kehidupan sehari-hari.</li>
+<li>Peserta didik dapat menunjukkan hasil perkalian dan pembagian bilangan cacah dengan tepat.
+
+<!-- =======================
+     ⿡ MATERI: KELIPATAN
+======================== -->
+<section id="Perkalian Pembagian">
+  <h3><strong>⿡ Materi: Perkalian Bilangan Cacah sampai 100.000 </strong></h3>
+
+  <div class="materi-Perkalian dan Pembagian">
+    <img src="Picture1.png" alt="Asapi">
+    <ul>
+      <li><strong>Pernahkah kalian berkunjung ke peternakan sapi? Di sana, kita bisa melihat banyak sapi yang sedang makan rumput, minum air, atau bahkan sedang diperah susunya...
+Hari ini kita akan belajar dengan mengunjungi peternakan sapi perah secara virtual, peternakan sapi ini milik Pak Rudi di dataran tinggi Batu. Di sana ada 125 kandang sapi, dan setiap kandang berisi 8 ekor sapi perah. Wah, banyak sekali!
+</strong></li>
+    </ul>
+  </div>
+
+  <p>Setiap sapi menghasilkan 12 liter susu setiap hari. Setelah diperah, susu dikumpulkan dan dikirim ke pabrik pengolahan susu di kota Malang
+
+</p>
+  <p>Bagaimana? Banyak sekali bukan? Mr Math akan mengajak kalian menghitung bersama-sama dengan cara bersusun ke bawah, agar lebih mudah menemukan hasilnya.</p>
+<p>Yuk, kita pelajari bersama bagaimana cara menghitung perkalian dan pembagian hingga puluhan ribu bahkan ratusan ribu dengan langkah yang sistematis!</p>
+
+  <p><strong>💡 Tujuan Pembelajaran</strong></p>
+  <pre>
+1.	Menentukan hasil perkalian hingga 100.000 menggunakan cara bersusun ke bawah.
+2.	Menentukan hasil pembagian hingga 100.000 menggunakan cara bersusun ke bawah.
+3.	Memecahkan soal cerita yang melibatkan perkalian dan pembagian dalam kehidupan sehari-hari.
+</pre>
+<p><strong>💡 Topik A. Perkalian</strong></p>
+  <pre>
+Pertanyaan Pemantik:
+1.	Mengapa kita perlu melakukan perkalian?
+2.	Bagaimana cara menghitung hasil perkalian dengan bilangan besar?
+3.	Mengapa cara bersusun ke bawah membantu kita menemukan hasil yang tepat?
+</pre>
+  <p>Ketika berkunjung ke Peternakan Sapi Pak Rudi, kita melihat ada <strong>125 kandang</strong>, dan setiap kandang berisi <strong>8 sapi perah.</strong>.</p>
+
+  <div class="example">
+    <strong>“Kalau setiap kandang berisi 8 sapi, berapa jumlah seluruh sapinya, ya?” </strong><br>
+    Di peternakan pak Rudi setiap sapi menghasilkan 12 liter susu setiap hari. Setelah diperah, susu dikumpulkan dan dikirim ke pabrik pengolahan susu di kota Malang<br>
+    “Kalau satu sapi menghasilkan 12 liter, kira-kira berapa liter susu dihasilkan seluruh sapi di peternakan Pak Rudi setiap hari?” 
+  </div>
+
+  <p><strong>MATERI</strong><br> 
+  Bagian ini membantu kalian memahami bagaimana cara menghitung hasil di peternakan sapi.
+Kalian akan belajar menggunakan perkalian dan pembagian bersusun ke bawah untuk menyelesaikan masalah nyata seperti menghitung jumlah sapi dan hasil susu di peternakan.
+</p>
+</section>
+<p><strong>Contoh 1</strong><br>  
+Pak Rudi memiliki 126 kandang, setiap kandang berisi 8 sapi. Untuk mengetahui jumlah seluruh sapi, kita bisa melakukan perkalian:
+</p>
+</section>
+<img src="Picture3.png" alt="qiroatul">
+
+</pre>
+<p><strong>💡 Langkah Langkah</strong></p>
+  <pre>
+Kalikan satu per satu dari angka paling kanan (satuan).
+1. 	8 × 6 = 48 → tulis 8, simpan 4.
+2. 	8 × 2 = 16, tambah 4 = 20 → tulis 0, simpan 2.
+3. 	8 × 1 = 8, tambah 2 = 10.
+4. 	Jadi, hasilnya adalah 1.008 ekor sapi.
+Jadi hasil dari 126 ×8=1008, dapat disimpulkan bahwa jumlah sapi pak Rudi dipeternakan ada 1008 ekor
+</pre>
+  </p>
+</section>
+<p><strong>Contoh 2</strong><br>  
+Di peternakan pak Rudi setiap sapi menghasilkan 12 liter susu setiap hari. Setelah diperah, susu dikumpulkan dan dikirim ke pabrik pengolahan susu di kota Malang
+</p>
+<div class="example">
+    <strong>“Kalau satu sapi menghasilkan 12 liter, kira-kira berapa liter susu dihasilkan seluruh sapi di peternakan Pak Rudi setiap hari?” </strong><br>
+    Di peternakan pak Rudi setiap sapi menghasilkan 12 liter susu setiap hari. Setelah diperah, susu dikumpulkan dan dikirim ke pabrik pengolahan susu di kota Malang<br>
+   Untuk mengetahui jumlah susu sapi yang dihasilkan, kita bisa melakukan perkalian:
+1008 ×12=⋯
+<br>Menggunakan Perkalian bersusun<br>
+  </div>
+<img src="Picture4.png" alt="qiroatul">
+  let kelipatan = [];
+  for (let i = 1; i <= 10; i++) {
+    kelipatan.push(bil * i);
+  }
+
+  hasilBox.style.color = "#0d47a1";
+  hasilBox.innerHTML = `
+    🔸 <strong>Bilangan:</strong> ${bil}<br>
+    🔹 <strong>10 Kelipatan Pertama:</strong><br>
+    ${kelipatan.join(", ")
+  `;
+}
+  <p>Langkah-langkah:</p>
+    <ol>
+        <li>Kalikan 1008 dengan angka satuan terlebih dahulu (2). Hasilnya 2.016.</li>
+        <li>Kalikan 1008 dengan angka puluhan (1 puluhan). Hasilnya 10.080 (ditulis 1.008, bergeser satu tempat ke kiri).</li>
+        <li>Jumlahkan keduanya menghasilkan 12.096.</li>
+        <li>Jadi, hasil 1008 × 12 adalah 12.096.</li>
+    </ol>
+    <p style="font-weight: bold;">Jadi, peternakan sapi Pak Rudi menghasilkan 12.096 liter susu dalam sehari.</p>
+
+    <hr>
+    <h4>Konsep Perkalian</h4>
+    <p>Perkalian adalah penjumlahan berulang dari bilangan yang sama.</p>
+    <p>Contoh: 4 × 3 berarti 4 + 4 + 4 = 12.</p>
+    <p style="font-weight: bold;">Kesimpulan:</p>
+    <p>Perkalian digunakan untuk mencari jumlah keseluruhan dari kelompok yang sama besar.</p>
+    
+    <h4>Susunan Nilai Tempat</h4>
+    <p>Sebelum melakukan operasi bilangan bersusun, pastikan bilangan disusun sesuai dengan nilai tempatnya (satuan dengan satuan, puluhan dengan puluhan, dan seterusnya).</p>
+
+    <table class="materi-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Puluhan Ribu</th>
+                <th>Ribuan</th>
+                <th>Ratusan</th>
+                <th>Puluhan</th>
+                <th>Satuan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>46.625</td>
+                <td>4</td>
+                <td>6</td>
+                <td>6</td>
+                <td>2</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>52.375</td>
+                <td>5</td>
+                <td>2</td>
+                <td>3</td>
+                <td>7</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p class="youtube-link">Untuk Materi Perkalian lebih mendalam, sobat Mr Math bisa cek di video ini: <a href="https://www.youtube.com/watch?v=KkdYup0ypQ8" target="_blank">[Video Perkalian Bersusun]</a></p>
+
+    <div class="contoh-soal">
+        <h4 style="color: var(--accent);">CONTOH SOAL Perkalian</h4>
+        <p>Kerjakan dengan cara bersusun ke bawah:</p>
+        <ol>
+            <li>356 × 9 = …</li>
+            <li>356 × 27 = …</li>
+            <li>2.405 × 6 = …</li>
+            <li>458 × 32 = …</li>
+            <li>235 × 24 = ...</li>
+        </ol>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #f8bbd0; margin: 30px 0;">
+
+    <h3 class="topic-heading">Topik B. Pembagian</h3>
+    <p> Pertanyaan Pemantik:</p>
+      <p>1. Apa artinya membagi sesuatu secara adil?</p>
+      <p>2. Bagaimana cara menghitung pembagian dengan bilangan besar secara mudah dan teratur?</p>
+      <p>3. Mengapa kita perlu memahami nilai tempat dalam pembagian bersusun ke bawah?</p>
+    <img src="Picture5.png">
+
+    <p>Setelah menghitung jumlah seluruh sapi di peternakan, ayo kita memperhatikan proses pengiriman susu di Peternakan Sapi milik Pak Rudi.</p>
+    <p>Dalam sehari, peternakan itu bisa menghasilkan sekitar 12.096 liter susu segar. Susu tersebut akan dikirim ke 6 pabrik pengolahan susu di kota Malang.</p>
+    <p style="font-style: italic; font-weight: 600;">“Kalau seluruh hasil susu ini dibagi rata ke enam pabrik, kira-kira berapa liter susu yang diterima oleh masing-masing pabrik, ya?”</p>
+    <p>Ayo mulai berpikir, mencoba membagi 12.096 dengan 6 menggunakan cara bersusun ke bawah. Pembagian membantu kita membagi sesuatu secara adil dan sama besar.</p>
+
+    <h3>MATERI</h3>
+    <p>Bagian ini membantu kalian memahami bagaimana cara menghitung hasil di peternakan sapi menggunakan pembagian bersusun ke bawah.</p>
+
+    <h4>Contoh 1: Pembagian Hasil Susu</h4>
+    <p>Peternakan Pak Rudi menghasilkan 12.096 liter susu setiap hari. Susu itu dikirim ke 6 pabrik pengolahan.</p>
+    <p style="font-weight: bold;">Untuk mengetahui berapa liter susu yang diterima setiap pabrik, kita lakukan Pembagian bersusun:</p>
+    <p style="border: 1px dashed #e91e63; padding: 10px; max-width: 400px; margin: 15px auto;">12.096 ÷ 6 = </p>
+    <img src="Picture6.png">
+
+    <p>Langkah-langkahnya:</p>
+    <ol>
+        <li>Ambil angka pertama 1, karena 1 lebih kecil dari 6, ambil dua angka pertama → 12. 12 ÷ 6 = *2* → tulis 2 di hasil bagi.</li>
+        <li>Kalikan 6 × 2 = 12 → kurangkan 12 - 12 = 0.</li>
+        <li>Turunkan angka berikutnya 0, hasilnya 0 ÷ 6 = 0 → tulis 0.</li>
+        <li>Turunkan angka berikutnya 9, karena 9 ÷ 6 = 1, tulis 1 di hasil bagi. Kalikan 6 × 1 = 6 → kurangkan 9 - 6 = 3.</li>
+        <li>Turunkan angka terakhir 6, sehingga menjadi 36. 36 ÷ 6 = 6, tulis 6 di hasil bagi. Kalikan 6 × 6 = 36 → kurangkan 36 - 36 = 0.</li>
+    </ol>
+    <p>Jadi hasilnya adalah 2.016.</p>
+    <p>Artinya, setiap pabrik menerima 2.016 liter susu segar per hari.</p>
+    
+    <h4>Contoh 2</h4>
+    <p>Peternakan lain menghasilkan 15.624 liter susu, yang akan dikirim ke 12 toko.
+    <p>Susu itu dikirim ke 6 pabrik pengolahan.</p>
+    <p>Untuk mengetahui berapa liter susu yang diterima setiap pabrik, kita lakukan pembagian:</p>
+    <p style="border: 1px dashed #e91e63; padding: 10px; max-width: 400px; margin: 15px auto;">15.624 ÷12=⋯ = </p>
+    <img src="Picture7.png">
+    
+    <p>Langkah-langkahnya:</p>
+    <ol>
+        <li>1.	Ambil dua angka pertama 15, karena 15 ÷ 12 = 1, tulis 1 di hasil bagi.Kalikan 12 × 1 = 12 → kurangkan 15 - 12 = 3.</li>
+        <li>2.	Turunkan angka berikutnya 6, menjadi 36.36 ÷ 12 = 3, tulis 3 di hasil bagi.Kalikan 12 × 3 = 36 → kurangkan 36 - 36 = 0.</li>
+        <li>3.	Turunkan angka berikutnya 2, karena 2 < 12, tulis 0 di hasil bagi dan turunkan angka berikutnya 4 menjadi 24.24 ÷ 12 = 2, tulis 2 di hasil bagi.</li>
+    </ol>  
+</p>
+    <p>Hasil akhirnya adalah 1.302.</p>
+    <p>Hasilnya adalah 1.302.</p>
+
+    <hr>
+     <h3 class="topic-heading">AKU BELAJAR APA SAJA ?</h3>
+    <p>Pembagian adalah kebalikan dari perkalian.</p>
+    <p>Pembagian berarti membagi suatu bilangan menjadi beberapa bagian yang sama besar.</p>
+
+    <p style="font-weight: bold;">CONTOH:</p>
+    <p>12 ÷ 3 berarti 12 dibagi menjadi 3 bagian yang sama.</p>
+    <p>Setiap bagian berisi 4.</p>
+    <p>Karena 3 × 4 = 12.</p>
+    <p style="font-weight: bold;">Kesimpulan:</p>
+    <p>Pembagian digunakan untuk membagi sesuatu secara adil atau mengetahui berapa bagian yang sama besar dari suatu jumlah tertentu.</p>
+
+    <p class="youtube-link">Untuk Materi Pembagian lebih mendalam, sobat Mr Math bisa cek di video ini: <a href="https://www.youtube.com/watch?v=BOLvysHt7mI" target="_blank">[Video Pembagian Bersusun]</a></p>
+
+    <div class="contoh-soal">
+        <h4 style="color: var(--accent);">CONTOH SOAL Pembagian</h4>
+        <p>Kerjakan soal-soal berikut dengan cara bersusun ke bawah:</p>
+        <ol>
+            <li>9.648 ÷ 12 = …</li>
+            <li>7.245 ÷ 15 = …</li>
+            <li>8.316 ÷ 9 = …</li>
+            <li>6.372 ÷ 14 = …</li>
+            <li>9.864 ÷ 18 = …</li>
+        </ol>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #f8bbd0; margin: 30px 0;">
+    
+    <h3 class="topic-heading"> Topik  C. Perkalian dan Pembagian di Kehidupan Sehari-hari</h3>
+
+    <p style="font-style: italic; font-weight: 600;">Pertanyaan pemantik</p>
+    
+    <p>1.	Bagaimana perkalian dan pembagian digunakan dalam kehidupan sehari-hari?</p>
+    <p>2.	Mengapa penting memahami kedua operasi ini dalam menyelesaikan masalah nyata?</p>
+    <p>3.	Bagaimana cara menentukan operasi hitung yang tepat untuk suatu permasalahan?</p>
+    <img src="picture10.jpg">
+    <p>Keesokan harinya, kita Kembali belajar lagi,Sekarang kita berada di gudang hasil produksi susu di Peternakan Pak Rudi. Setiap kotak berisi 24 botol, dan dalam sehari peternakan itu mengisi 125 kotak susu.</p>
+    <p style="font-style: italic; font-weight: 600;">“Coba hitung, berapa botol susu semuanya?”</p>
+    <p>Setelah dihitung, susu-susu itu dikirim ke beberapa toko. Setiap toko menerima jumlah yang sama dari total botol susu yang ada.</p>
+    <p style="font-style: italic; font-weight: 600;">“Kalau seluruh botol susu dibagi ke 5 toko, berapa botol yang diterima masing-masing toko?”</p>
+    <p>Kita akan belajar bahwa **perkalian dan pembagian saling berkaitan.</p>
+
+    <h3>MATERI: Menghubungkan Perkalian dan Pembagian</h3>
+    <p>Perhatikan hubungan berikut:</p>
+    <p style="font-style: italic; font-weight: bold; background: #ffeef2; padding: 10px; border-radius: 5px;">Jika 24 × 5 = 120, maka 120 ÷ 5 = 24 dan 120 ÷ 24 = 5.</p>
+    <p>Artinya, perkalian dan pembagian adalah operasi hitung yang saling berkaitan.</p>
+    
+    <h4>Contoh 1: Menghitung Total Botol</h4>
+    <p>Pak Rudi memiliki 24 botol susu per kotak dan mengisi 125 kotak setiap hari.</p>
+    <img src="Picture8.png"style="margin-left: 0; margin-right: auto; display: block; width: 100px;">
+    <p>jadi, totanya adalah: 125 × 24 = 3.000 botol susu.</p>
+
+    <h4>Contoh 2</h4>
+    <p>Susu tersebut akan dikirim ke 5 toko dengan jumlah yang sama.</p>
+    <p>Gunakan pembagian untuk mencari jumlah botol per toko:</p>
+    <img src="Picture9.png"style="margin-left: 0; margin-right: auto; display: block; width: 100px;">
+
+    <p>setiap toko menerima 600 botol susu per toko.</p>
+
+</script>
+
+<hr>
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKPD Interaktif Bilangan Cacah - Kelas 6 SD</title>
+<style>
+  body{
+    font-family: "Poppins", sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    margin: 0; padding: 0;
+  }
+  header{
+    background: #c01ea5;;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  nav{
+    display: flex;
+    justify-content: center;
+    background: #c01ea5;
+    flex-wrap: wrap;
+  }
+  nav button{
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+  nav button:hover{
+    background: #c01ea5;
+  }
+  section{
+    display: none;
+    padding: 20px;
+  }
+  .active{
+    display: block;
+  }
+  .card{
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  h2{
+    color: #1565c0;
+    border-left: 6px solid #c01ea5;
+    padding-left: 10px;
+  }
+  textarea{
+    width: 100%;
+    min-height: 60px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+  }
+  button.check{
+    background: #c01ea5;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  .result{
+    background: #e3f2fd;
+    border-left: 4px solid #c01ea5;
+    padding: 10px;
+    margin-top: 8px;
+    display: none;
+  }
+
+
+<nav>
+  <button onclick="show('lkpd1')">LKPD 1</button>
+  <button onclick="show('lkpd2')">LKPD 2</button>
+</nav>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKPD Interaktif - Perkalian dan Pembagian Bilangan Cacah</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: #f8faff;
+    color: #222;
+    margin: 0; padding: 0;
+  }
+  header {
+    background: #e91e63;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    background: #d81b60;
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+  nav button:hover {
+    background: #ad1457;
+  }
+  section {
+    display: none;
+    padding: 20px;
+  }
+  .active {
+    display: block;
+  }
+  .card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  h2 {
+    color: #d81b60;
+    border-left: 6px solid #e91e63;
+    padding-left: 10px;
+  }
+  textarea {
+    width: 100%;
+    min-height: 60px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+  }
+  button.check {
+    background: #e91e63;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  .result {
+    background: #fce4ec;
+    border-left: 4px solid #e91e63;
+    padding: 10px;
+    margin-top: 8px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+<header>LKPD Interaktif - Perkalian dan Pembagian Bilangan Cacah</header>
+
+<nav>
+  <button onclick="show('lkpd1')">LKPD 1 - Perkalian</button>
+  <button onclick="show('lkpd2')">LKPD 2 - Pembagian</button>
+  <button onclick="show('lkpd3')">LKPD 3 - Soal Cerita</button>
+</nav>
+
+<!-- ===================== LKPD 1 ===================== -->
+<section id="lkpd1" class="active">
+  <h2>LKPD 1 - Menentukan Hasil Perkalian</h2>
+
+  <div class="card">
+    <b>Tujuan Pembelajaran:</b><br>
+    Peserta didik dapat menentukan hasil perkalian hingga 100.000 menggunakan cara bersusun ke bawah dengan tepat (C3).
+  </div>
+
+  <div class="card">
+    <b>Petunjuk:</b>
+    <ul style="text-align:left; line-height:1.6;">
+      <li>Gunakan cara bersusun ke bawah.</li>
+      <li>Perhatikan posisi angka satuan dan puluhan.</li>
+      <li>Tulis langkah-langkah perhitunganmu di kolom jawaban.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <b>Soal 1:</b><br>
+    324 × 23 = ...<br>
+    <textarea id="a11"></textarea>
+    <button class="check" onclick="showResult('r11')">Lihat Pembahasan</button>
+    <div id="r11" class="result">324 × 23 = (324 × 20) + (324 × 3) = 6480 + 972 = <b>7.452</b></div>
+  </div>
+
+  <div class="card">
+    <b>Soal 2:</b><br>
+    2.415 × 12 = ...<br>
+    <textarea id="a12"></textarea>
+    <button class="check" onclick="showResult('r12')">Lihat Pembahasan</button>
+    <div id="r12" class="result">2.415 × 12 = (2.415 × 10) + (2.415 × 2) = 24.150 + 4.830 = <b>28.980</b></div>
+  </div>
+
+  <div class="card">
+    <b>Soal 3:</b><br>
+    4.205 × 15 = ...<br>
+    <textarea id="a13"></textarea>
+    <button class="check" onclick="showResult('r13')">Lihat Pembahasan</button>
+    <div id="r13" class="result">4.205 × 15 = (4.205 × 10) + (4.205 × 5) = 42.050 + 21.025 = <b>63.075</b></div>
+  </div>
+</section>
+
+<!-- ===================== LKPD 2 ===================== -->
+<section id="lkpd2">
+  <h2>LKPD 2 - Menentukan Hasil Pembagian</h2>
+
+  <div class="card">
+    <b>Tujuan Pembelajaran:</b><br>
+    Peserta didik dapat menentukan hasil pembagian hingga 100.000 menggunakan cara bersusun ke bawah dengan tepat (C3).
+  </div>
+
+  <div class="card">
+    <b>Petunjuk:</b>
+    <ul style="text-align:left; line-height:1.6;">
+      <li>Lakukan pembagian dengan cara bersusun ke bawah.</li>
+      <li>Tulis hasil sementara di setiap langkah.</li>
+      <li>Periksa kembali hasil pembagianmu.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <b>Soal 1:</b><br>
+    6.456 ÷ 12 = ...<br>
+    <textarea id="a21"></textarea>
+    <button class="check" onclick="showResult('r21')">Lihat Pembahasan</button>
+    <div id="r21" class="result">6.456 ÷ 12 = <b>538</b></div>
+  </div>
+
+  <div class="card">
+    <b>Soal 2:</b><br>
+    8.925 ÷ 15 = ...<br>
+    <textarea id="a22"></textarea>
+    <button class="check" onclick="showResult('r22')">Lihat Pembahasan</button>
+    <div id="r22" class="result">8.925 ÷ 15 = <b>595</b></div>
+  </div>
+
+  <div class="card">
+    <b>Soal 3:</b><br>
+    9.240 ÷ 24 = ...<br>
+    <textarea id="a23"></textarea>
+    <button class="check" onclick="showResult('r23')">Lihat Pembahasan</button>
+    <div id="r23" class="result">9.240 ÷ 24 = <b>385</b></div>
+  </div>
+</section>
+
+<!-- ===================== LKPD 3 ===================== -->
+<section id="lkpd3">
+  <h2>LKPD 3 - Soal Cerita Perkalian dan Pembagian</h2>
+
+  <div class="card">
+    <b>Tujuan Pembelajaran:</b><br>
+    Peserta didik dapat memecahkan soal cerita yang melibatkan perkalian dan pembagian dalam kehidupan sehari-hari (C4).
+  </div>
+
+  <div class="card">
+    <b>Soal 1:</b><br>
+    Sebuah toko menjual 125 kotak pensil. Setiap kotak berisi 24 pensil. 
+    Berapa jumlah seluruh pensil yang dijual toko tersebut?<br>
+    <textarea id="a31"></textarea>
+    <button class="check" onclick="showResult('r31')">Lihat Pembahasan</button>
+    <div id="r31" class="result">125 × 24 = <b>3.000 pensil</b>.</div>
+  </div>
+
+  <div class="card">
+    <b>Soal 2:</b><br>
+    Ibu memiliki 960 kue dan ingin membaginya sama rata ke 24 kotak. 
+    Berapa banyak kue dalam setiap kotak?<br>
+    <textarea id="a32"></textarea>
+    <button class="check" onclick="showResult('r32')">Lihat Pembahasan</button>
+    <div id="r32" class="result">960 ÷ 24 = <b>40 kue per kotak</b>.</div>
+  </div>
+
+  <div class="card">
+    <b>Soal 3:</b><br>
+    Sebuah pabrik membuat 320 botol minuman setiap jam. 
+    Berapa botol yang dihasilkan dalam 8 jam kerja?<br>
+    <textarea id="a33"></textarea>
+    <button class="check" onclick="showResult('r33')">Lihat Pembahasan</button>
+    <div id="r33" class="result">320 × 8 = <b>2.560 botol</b>.</div>
+  </div>
+</section>
+
+<script>
+function show(id){
+  document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+function showResult(id){
+  document.getElementById(id).style.display="block";
+}
+</script>
+</body>
+</html>

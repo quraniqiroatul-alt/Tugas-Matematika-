@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volume Tabung | Matematika Kelas 5 SD</title>
+<style>
+:root {
+--accent: #e91e63;
+--paper: #fff;
+--muted: #555;
+}
+body {
+font-family: "Poppins", sans-serif;
+background: #ffe4ec;
+margin: 0;
+padding: 24px;
+color: #222;
+}
+header {
+background: var(--accent);
+color: white;
+text-align: center;
+padding: 18px 12px;
+border-radius: 10px;
+}
+nav a {
+color: white;
+text-decoration: none;
+background: rgba(255, 255, 255, 0.15);
+padding: 6px 12px;
+border-radius: 6px;
+margin: 0 4px;
+display: inline-block;
+font-size: 14px;
+}
+nav a:hover {background: rgba(255, 255, 255, 0.25);}
+.container {
+max-width: 1100px;
+margin: auto;
+padding: 20px;
+background: var(--paper);
+border-radius: 12px;
+box-shadow: 0 6px 20px rgba(233, 30, 99, 0.15);
+margin-top: 20px;
+}
+h2, h3 {color: var(--accent);}
+h2 {border-bottom: 2px solid #f8bbd0; padding-bottom: 6px;}
+iframe {
+display: block; margin: 18px auto;
+border-radius: 10px;
+width: 100%; max-width: 700px;
+height: 360px; border: 0;
+}
+footer {
+text-align: center;
+padding: 15px;
+background: var(--accent);
+color: white;
+border-radius: 10px;
+margin-top: 30px;
+font-size: 14px;
+}
+.tujuan, .ciri {
+background: #fce4ec;
+border-left: 6px solid var(--accent);
+padding: 15px 20px;
+border-radius: 10px;
+margin-top: 25px;
+}
+.ciri h3, .tujuan h3 {color: var(--accent);}
+.ciri ul, .tujuan ul {margin: 10px 0; padding-left: 25px; list-style: decimal;}
+
+/* Gaya baru untuk bagian penyelesaian contoh */
+.penyelesaian {
+    background-color: #fff3e0; /* Warna krem/peach lembut */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #ffb74d; /* Garis putus-putus */
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.penyelesaian p {
+    margin: 5px 0;
+    font-family: monospace; /* Font monospasi untuk kode/perhitungan */
+    font-size: 16px;
+    line-height: 1.5;
+}
+/* Akhir gaya baru */
+
+.kotak-teks {
+display: flex;
+align-items: center;
+background: #fce4ec;
+border-radius: 12px;
+padding: 15px;
+margin-top: 20px;
+gap: 20px;
+}
+.kotak-teks img {
+width: 180px;
+border-radius: 10px;
+}
+.kotak-teks p {
+font-size: 17px;
+line-height: 1.6;
+text-align: justify;
+margin: 0;
+}
+.tabel-bagian {
+width: 100%;
+border-collapse: collapse;
+margin-top: 25px;
+font-size: 15px;
+}
+.tabel-bagian th, .tabel-bagian td {
+border: 1px solid #f8bbd0;
+padding: 10px;
+text-align: left;
+}
+.tabel-bagian th {
+background-color: var(--accent);
+color: white;
+font-weight: 600;
+text-align: center;
+}
+.tabel-bagian tr:nth-child(even) {background-color: #fcf4f7;}
+@media (max-width: 700px) {
+.kotak-teks {flex-direction: column; text-align: center;}
+.kotak-teks img {width: 70%;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1 style="margin:0;">📘 Volume Tabung</h1>
+<nav style="margin-top:10px">
+ <a href="Index.html">Beranda</a>
+ <a href="Bilangan Cacah.html">Materi Bilangan</a>
+ <a href="geometri.html">Materi Geometri</a>
+ <a href="kuis.html">Kuis</a>
+ <a href="Evaluasi.html">Evaluasi</a>
+</nav>
+</header>
+
+<div class="container">
+<div class="materi-introduksi">
+
+ <div class="judul-bab">
+  <h3>🎯 MATERI</h3>
+  <h1>BAB II. MENGENAL TABUNG</h1>
+ </div>
+
+ <img src="Picture11.png" alt="Ilustrasi tabung" style="display:block;margin:20px auto;border-radius:12px;max-width:600px;width:100%;">
+
+ <p style="font-size:17px;line-height:1.7;text-align:justify;">
+ Pernahkah kalian berkunjung ke minimarket? Melihat apa sajakah kalian di sana? Banyak benda seperti kaleng susu, botol minuman, hingga tempat pensil logam ternyata berbentuk tabung, loh! 
+ Yuk, kita pelajari bagaimana cara menghitung <strong>volume dan luas permukaan tabung</strong>!
+ </p>
+
+ <div class="tujuan">
+  <h3>🎓 Tujuan Pembelajaran</h3>
+  <ul>
+   <li>Menentukan Luas Tabung</li>
+   <li>Menentukan Volume Tabung</li>
+   <li>Memecahkan soal cerita dari Luas dan Volume Tabung</li>
+  </ul>
+ </div>
+
+ <h1 style="margin-top:30px;">MENGENAL TABUNG</h1>
+ <img src="Picture12.png" alt="Bentuk tabung" style="max-width:400px;display:block;margin:10px auto;">
+ <p style="font-size:17px;">Hai teman-teman! Sebelum menghitung luas dan volume, yuk kenali dulu apa itu tabung!</p>
+ 
+ <div class="kotak-teks">
+  <img src="Picture13.png" alt="Tabung contoh">
+  <p>Coba perhatikan benda-benda ini! “Semua benda ini mirip bentuknya, kan? Nah, bentuk itu disebut <strong>tabung!</strong>”</p>
+ </div>
+
+ <img src="Picture14.png" style="max-width:250px;margin:10px;"> 
+ <img src="Picture15.jpg" style="max-width:250px;margin:10px;">
+
+ <div class="ciri">
+  <h3>✨ Ciri-Ciri Tabung</h3>
+  <ul>
+   <li>Memiliki dua bidang alas dan tutup berbentuk lingkaran yang sama besar.</li>
+   <li>Memiliki selimut tabung yang bisa dibuka menjadi persegi panjang.</li>
+   <li>Tidak memiliki titik sudut.</li>
+   <li>Memiliki tinggi (<strong>t</strong>) yang merupakan jarak antara alas dan tutup.</li>
+  </ul>
+ </div>
+
+ <hr>
+ <h2>📐 Bagian-Bagian Tabung</h2>
+ <table class="tabel-bagian">
+  <thead>
+   <tr>
+    <th>Bagian</th><th>Keterangan</th><th>Bentuk</th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr><td>Alas & Tutup</td><td>Dua bidang berbentuk lingkaran</td><td>Lingkaran</td></tr>
+   <tr><td>Selimut Tabung</td><td>Bidang melengkung penghubung alas dan tutup</td><td>Persegi panjang</td></tr>
+   <tr><td>Tinggi (t)</td><td>Jarak antara alas dan tutup</td><td>Garis tegak lurus</td></tr>
+   <tr><td>Jari-jari (r)</td><td>Jarak dari pusat ke sisi lingkaran</td><td>Garis dari pusat ke tepi</td></tr>
+  </tbody>
+ </table>
+
+ <p style="font-size:17px;line-height:1.7;text-align:justify;">
+ Dari jaring-jaring inilah nanti kita bisa menghitung <strong>luas permukaan tabung</strong>, yaitu gabungan dari dua lingkaran dan satu persegi panjang.
+ </p>
+
+ <h1 style="margin-top:20px;">Topik A. Luas Permukaan Tabung</h1>
+ <div>
+  <h3>✨ Pertanyaan Pemantik:</h3>
+  <ul>
+   <li>Apa itu luas permukaan tabung?</li>
+   <li>Bagaimana cara menghitungnya?</li>
+   <li>Bagaimana bentuk jaring-jaring tabung?</li>
+  </ul>
+ </div>
+
+ <img src="Picture16.png" alt="Kaleng tabung" style="display:block;margin:20px auto;max-width:500px;width:100%;">
+
+ <div class="ciri" style="background:#fce4ec;">
+  <h3>📘 MATERI</h3>
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Setelah melihat kaleng minuman ini, ayo kita hitung berapa <strong>luas permukaan</strong> kaleng tersebut! 
+   Jika kita buka bagian <strong>selimutnya</strong>, bentuknya seperti <strong>persegi panjang</strong>. 
+   Luas seluruh permukaan tabung = 2 luas lingkaran + luas persegi panjang (selimut).
+  </p>
+
+  <strong>Contoh 1:</strong><br>
+  <img src="Picture17.png" style="max-width:250px;margin:10px;"> 
+  <img src="Picture18.png" style="max-width:250px;margin:10px;">
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+  <strong>Rumus luas permukaan tabung:</strong><br>
+  Luas permukaan = 2 × luas lingkaran + luas persegi panjang<br><br>
+  Luas lingkaran = π × r²<br>
+  Luas persegi panjang = keliling lingkaran × tinggi = 2πr × t<br><br>
+  Maka: <strong>L = 2πr(r + t)</strong><br><br>
+
+  <u>Keterangan:</u><br>
+  r = jari-jari alas<br>
+  t = tinggi tabung<br><br>
+
+  <strong>Contoh Perhitungan 1:</strong><br>
+  Diketahui: t = 18 cm, d = 7 cm → r = 3,5 cm<br>
+  L = 2 × 22/7 × 3,5 × (3,5 + 18)<br>
+  = 2 × 22/7 × 3,5 × 21,5<br>
+  = 473 cm²<br>
+  Jadi, luas permukaan kaleng ≈ <strong>473 cm²</strong><br><br>
+
+  <strong>Contoh 2:</strong><br>
+  Diketahui: d = 20 cm → r = 10 cm, t = 10 cm<br>
+  L = 2 × 3,14 × 10 × (10 + 10)<br>
+  = 2 × 3,14 × 10 × 20<br>
+  = 1256 cm²<br>
+  Jadi, luas permukaan kaleng ≈ <strong>1256 cm²</strong>
+  </p>
+
+  <h3>🧮 Latihan Soal:</h3>
+  <ol style="font-size:17px;line-height:1.7;">
+   <li>r = 7 cm dan t = 10 cm</li>
+   <li>r = 3,5 cm dan t = 18 cm</li>
+   <li>r = 6 cm dan t = 14 cm</li>
+   <li>r = 4,5 cm dan t = 12 cm</li>
+   <li>r = 5 cm dan t = 20 cm</li>
+  </ol>
+
+  <h3>🎯 Soal Cerita:</h3>
+  <ul style="font-size:17px;line-height:1.7; list-style-type: none; padding-left: 0;">
+   <li>Mr. Math ingin menghias toples berbentuk tabung (r = 8 cm, t = 20 cm). Hitung luas stiker yang dibutuhkan!</li>
+   <li>Sebuah kaleng minuman energi memiliki r = 3,5 cm dan t = 12 cm. Hitung volume airnya!</li>
+   <li>Tempat pensil logam memiliki r = 4 cm dan t = 10 cm. Hitung luas cat yang dibutuhkan!</li>
+   <li>Tangki air memiliki r = 25 cm dan t = 60 cm. Berapa volume air yang dapat ditampung?</li>
+   <li>Mr. Math ingin menempel label pada kaleng susu (r = 5 cm, t = 14 cm). Berapa luas labelnya?</li>
+  </ul>
+ </div>
+
+ <h1 style="margin-top:20px;">Topik B. Volume Tabung</h1>
+ <div>
+  <h3>✨ Pertanyaan Pemantik:</h3>
+  <ul>
+   <li>Apa yang dimaksud dengan volume tabung?</li>
+   <li>Bagaimana cara menghitung volume tabung dari benda di sekitar kita?</li>
+   <li>Mengapa hasil volume tabung bergantung pada jari-jari dan tinggi?</li>
+  </ul>
+ </div>
+  <img src="Picture19.png" alt="Kaleng tabung contoh volume" style="display:block;margin:20px auto;max-width:500px;width:100%;border-radius:12px;">
+  
+ <div class="ciri" style="margin-top:20px;background:#fce4ec;">
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Sekarang kita akan jalan-jalan ke supermarket lagi. Suatu ketika Mr. Math sedang membantu kasir menata rak minuman. 
+   “Lihat, rak ini penuh dengan kaleng minuman berbentuk tabung!” kata Mr. Math. 
+   “Kira-kira, berapa banyak air yang bisa ditampung oleh satu kaleng ya?”
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Mr. Math pun mengajak kalian menghitung <strong>volume tabung</strong> dari kaleng tersebut. 
+   Volume menunjukkan seberapa banyak isi yang dapat ditampung di dalam suatu wadah.
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   “Volume tabung menunjukkan kapasitas isi di dalamnya,” jelas Mr. Math. 
+   “Kalau kamu isi kaleng dengan air sampai penuh, volume tabung adalah jumlah air yang bisa masuk ke dalam kaleng itu.”
+  </p>
+
+  <h3>📚 MATERI VOLUME</h3>
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Sebelum mengenal tabung, kalian perlu tahu bahwa:
+   <br><strong>Volume prisma = Luas alas × Tinggi</strong>
+   <br><br>
+   Nah, tabung juga termasuk bangun ruang seperti prisma, tapi alasnya berbentuk <strong>lingkaran</strong>. 
+   Karena alas tabung berbentuk lingkaran, maka:
+   <br><strong>Luas alas = πr²</strong>
+   <br><br>
+   Karena volume = luas alas × tinggi, maka:
+   <br><strong>V = πr² × t</strong>
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   “Ayo kita bayangkan tabung itu seperti tumpukan koin,” kata Mr. Math. 
+   “Setiap koin berbentuk lingkaran — itu luas alasnya. Kalau kamu tumpuk koin-koin itu sampai setinggi tabung, kamu sedang menghitung berapa banyak lingkaran yang membentuk tabung itu!”
+  </p>
+    <img src="Picture20.png" alt="Ilustrasi tumpukan lingkaran membentuk tabung" style="display:block;margin:20px auto;max-width:450px;width:100%;border-radius:12px;">
+
+    Dengan kata lain, <strong>tabung tersusun dari banyak lingkaran</strong> yang ditumpuk setinggi <strong>t</strong>. 
+    Semakin tinggi tabungnya, semakin banyak lingkaran yang bisa disusun, dan semakin besar volumenya.
+   </p>
+
+   <h3>🧮 Contoh 1</h3>
+   <p style="font-size:17px;line-height:1.7;text-align:justify;">
+    Kaleng minuman <strong>Berry Loops</strong> memiliki:
+    <ul style="font-size:17px;line-height:1.7; list-style-type: none; padding-left: 0;">
+     <li>Tinggi (<strong>t</strong>) = 18 cm</li>
+     <li>Diameter (<strong>d</strong>) = 7 cm → <strong>r</strong> = 3,5 cm</li>
+     <li>Gunakan π = 22/7</li>
+    </ul>
+   </p>
+  
+          <h4 style="color:var(--accent); margin-bottom: 5px;">Hitunglah volumenya!</h4>
+          
+          <p style="font-size:17px; font-weight: bold; margin-bottom: 5px;">Penyelesaian:</p>
+          
+          <div class="penyelesaian">
+              <p>Diketahui: r = 3,5 cm, t = 18 cm, π = 22/7</p>
+              <p>V = π × r² × t</p>
+              <p>V = 22/7 × 3,5 × 3,5 × 18</p>
+              <p>V = 22 × 0,5 × 3,5 × 18</p>
+              <p>V = 11 × 3,5 × 18</p>
+              <p>V = 38,5 × 18</p>
+              <p>V = 693</p>
+          </div>
+          
+          <p style="font-size:17px;line-height:1.7;text-align:justify; font-weight: bold;">
+              Jadi, volume kaleng minuman adalah 693 cm³.
+          </p>
+          
+          <h3 style="margin-top: 30px;">✍️ Latihan Soal Volume</h3>
+          <p style="font-size:17px; line-height:1.7;">Tentukan volume dari tabung dengan ketentuan berikut:</p>
+          <ol style="font-size:17px;line-height:1.7; padding-left: 20px;">
+              <li>r = 7 cm dan t = 10 cm</li>
+              <li>r = 3,5 cm dan t = 18 cm</li>
+              <li>r = 6 cm dan t = 14 cm</li>
+              <li>r = 4,5 cm dan t = 12 cm</li>
+              <li>r = 5 cm dan t = 20 cm</li>
+          </ol>
+          
+          <p style="font-size:17px; line-height:1.7; margin-top: 30px;">
+              Untuk Materi Luas permukaan dan volume tabung lebih mandalam, sobat Mr Math bisa cek di video ini: 
+              <br>
+              <a href="https://www.youtube.com/watch?v=HzShlGrbg80" target="_blank" style="color:var(--accent); font-weight: bold;">Video Pembelajaran Luas dan Volume Tabung</a>
+          </p>
+
+          <h1 style="margin-top:20px;">Topik c. Memecahkan Masalah Luas dan Volume Tabung dalam Kehidupan Sehari-hari</h1>
+  <div>
+    <h3>✨ Pertanyaan Pemantik:</h3>
+     <ul>
+       <li>Di mana kita bisa menggunakan perhitungan luas dan volume tabung dalam kehidupan nyata?</li>
+       <li>Bagaimana cara menentukan bahan pembungkus atau isi wadah berbentuk tabung?</li>
+       <li>Mengapa penting memahami luas dan volume tabung dalam kegiatan sehari-hari?</li>
+    </ul>
+  </div>
+  
+  <img src="Picture19.png" alt="Kaleng tabung contoh volume" style="display:block;margin:20px auto;max-width:500px;width:100%;border-radius:12px;">
+
+  
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Hari ini, Mr. Math pergi ke Percetakan Kemasan. Ia melihat pekerja sedang menempelkan label pada kaleng minuman dan menuang air ke dalam botol berbentuk tabung.
+   “Wah, sepertinya mereka sedang menghitung luas label dan isi botol ya!” kata Mr. Math sambil tersenyum.
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Mr. Math kemudian mengajak kalian untuk memecahkan beberapa masalah nyata menggunakan konsep luas permukaan dan volume tabung.
+   Ia berkata:
+  “Kalian tahu nggak, dalam kehidupan sehari-hari kita sering menghitung luas untuk menutupi permukaan, dan volume untuk mengukur isi di dalamnya? Yuk, kita latihan!”
+ 
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+  Sekarang kita akan jalan-jalan ke supermarket lagi. Suatu ketika Mr. Math sedang membantu kasir menata rak minuman.
+  “Lihat, rak ini penuh dengan kaleng minuman berbentuk tabung!” kata Mr. Math.
+  “Kira-kira, berapa banyak air yang bisa ditampung oleh satu kaleng ya?”
+  </p>
+   <ul>
+       <li>Luas permukaan tabung digunakan untuk menghitung bahan pembungkus, cat, atau label. Misalnya: menghitung berapa luas stiker yang dibutuhkan untuk menutupi satu kaleng minuman.</li>
+       <li>Volume tabung digunakan untuk menghitung kapasitas atau isi benda berbentuk tabung. Misalnya: menghitung banyaknya air, susu, atau minyak yang bisa dimasukkan ke dalam wadah tabung.</li>
+    </ul>
+    <h2 style="margin-top:40px; color:var(--accent); border-bottom:2px solid #f8bbd0; padding-bottom:6px;">📝 LATIHAN SOAL</h2>
+
+<p style="font-size:17px;line-height:1.7;text-align:justify;">
+Kerjakan soal-soal berikut untuk melatih kemampuan kalian dalam menerapkan konsep <strong>luas dan volume tabung</strong> pada situasi nyata!
+</p>
+
+<ol style="font-size:17px;line-height:1.7;">
+  <li>Sebuah toples kue berbentuk tabung memiliki jari-jari 7 cm dan tinggi 20 cm. Hitung volume toples tersebut!</li>
+  <li>Sebuah kaleng minuman memiliki diameter 6 cm dan tinggi 12 cm. Hitung luas label yang diperlukan untuk menutupi bagian selimut kaleng!</li>
+  <li>Sebuah drum kecil memiliki jari-jari 25 cm dan tinggi 40 cm. Hitung volume air yang dapat ditampung drum tersebut dalam liter! (1 liter = 1.000 cm³)</li>
+  <li>Mr. Math ingin mengecat sebuah tabung logam dengan jari-jari 8 cm dan tinggi 15 cm. Hitung luas seluruh permukaan tabung yang akan dicat!</li>
+  <li>Sebuah wadah susu berbentuk tabung memiliki jari-jari 4 cm dan tinggi 10 cm. Hitung berapa banyak susu (dalam cm³) yang dapat dimasukkan ke dalam wadah tersebut, dan berapa luas label yang diperlukan jika hanya menutup bagian selimut tabung!</li>
+</ol>
+
+<hr style="border:1px dashed #f8bbd0; margin:30px 0;">
+
+<h3 style="color:var(--accent);">📘 Latihan Tambahan</h3>
+<p style="font-size:17px;line-height:1.7;text-align:justify;">
+Kerjakan juga latihan tambahan berikut agar kalian semakin terampil dalam menghitung volume dan luas permukaan tabung!
+</p>
+
+<ol style="font-size:17px;line-height:1.7;">
+  <li>Sebuah kaleng susu bubuk memiliki jari-jari 5 cm dan tinggi 12 cm. Tentukan volumenya!</li>
+  <li>Sebuah botol minuman energi memiliki diameter 6 cm dan tinggi 15 cm. Hitung berapa volume air yang bisa ditampung botol tersebut.</li>
+  <li>Sebuah toples kue berbentuk tabung memiliki jari-jari 8 cm dan tinggi 10 cm. Hitung volumenya!</li>
+  <li>Tempat pensil logam memiliki diameter 10 cm dan tinggi 20 cm. Tentukan volumenya!</li>
+  <li>Sebuah drum air kecil memiliki jari-jari 25 cm dan tinggi 60 cm. Hitung berapa liter air yang bisa ditampung drum tersebut!</li>
+  <li>Sebuah kaleng susu bubuk memiliki jari-jari 5 cm dan tinggi 12 cm. Tentukan volumenya!</li>
+  <li>Sebuah botol minuman energi memiliki diameter 6 cm dan tinggi 15 cm. Hitung berapa volume air yang bisa ditampung botol tersebut.</li>
+  <li>Sebuah toples kue berbentuk tabung memiliki jari-jari 8 cm dan tinggi 10 cm. Hitung volumenya!</li>
+  <li>Tempat pensil logam memiliki diameter 10 cm dan tinggi 20 cm. Tentukan volumenya!</li>
+  <li>Sebuah drum air kecil memiliki jari-jari 25 cm dan tinggi 60 cm. Hitung berapa liter air yang bisa ditampung drum tersebut!</li>
+</ol>
+
+  </div>
+   
+ </div>
+
+
+</div>
+</div>
+
+<footer>
+© 2025 Pembelajaran Matematika SD |🌸
+</footer>
+
+<script>
+function hitungVolume() {
+ const r = parseFloat(document.getElementById('radius').value);
+ const t = parseFloat(document.getElementById('height').value);
+ const phi = 3.14;
+ let hasil = '';
+
+ if (isNaN(r) || isNaN(t) || r <= 0 || t <= 0) {
+ hasil = 'Masukkan nilai jari-jari dan tinggi yang benar!';
+ } else {
+ const volume = phi * r * r * t;
+ hasil = `Volume tabung = ${volume.toFixed(2)} cm³`;
+ }
+
+ document.getElementById('hasil').textContent = hasil;
+}
+</script>
+
+</body>
+</html>

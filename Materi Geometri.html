@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materi Geometri | Volume Tabung</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --accent:#eb61bd;
+      --accent-light:#c01ea5;
+      --muted:#666;
+      --card:#fff;
+      --bg:#f4f7fb;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      color: #111;
+      background: url("img/Backgound MTK.webp") no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255,255,255,0.2);
+      z-index: -1;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(90deg,var(--accent),var(--accent-light));
+      color: #fff;
+      padding: 15px 20px 5px 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 {margin:0;font-size:1.9rem;}
+    header h3 {margin:8px 0 10px;font-weight:500;}
+    header p {margin:10px 0 20px;font-size:1rem;}
+
+    /* ===== NAVBAR ===== */
+    nav {
+      margin-top: -10px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 5%;
+      border-bottom: 4px solid #0d47a1;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.08);
+    }
+    nav ul li a.active {
+      background: #fff;
+      color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .container {max-width:960px;margin:auto;padding:16px;}
+    main {
+      background:var(--card);
+      padding:24px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    h2, h3 {color: var(--accent);}
+    h2 {border-bottom: 2px solid #f8bbd0;padding-bottom:6px;}
+
+    iframe {
+      display:block;
+      margin:18px auto;
+      border-radius:10px;
+      width:100%;
+      max-width:700px;
+      height:360px;
+      border:0;
+    }
+
+    .calc {
+      text-align:center;
+      margin-top:20px;
+    }
+
+    input, button {
+      padding:8px;
+      margin:6px;
+      border-radius:8px;
+      border:1px solid #f8bbd0;
+      font-size:15px;
+    }
+
+    button {
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      border: none;
+    }
+    button:hover {background: #d81b60;}
+
+    footer {
+      text-align:center;
+      color:var(--muted);
+      margin-top:20px;
+      font-size:0.9rem;
+    }
+
+    /* ===== BACKGROUND ICONS ===== */
+    .math-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .math-bg svg {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.15;
+      animation: floatMath 12s infinite ease-in-out;
+    }
+    @keyframes floatMath {
+      0% { transform: translateY(0) rotate(0deg);}
+      50% { transform: translateY(-20px) rotate(20deg);}
+      100% { transform: translateY(0) rotate(0deg);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LATAR IKON MATEMATIKA -->
+  <div class="math-bg">
+    <svg style="top:10%;left:15%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">➕</text></svg>
+    <svg style="top:40%;left:70%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">✖</text></svg>
+    <svg style="top:70%;left:30%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">➗</text></svg>
+    <svg style="top:25%;left:80%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">➖</text></svg>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <h1>Materi Geometri: Volume Tabung</h1>
+      <h3>Matematika Kelas 6 SD</h3>
+      <p>Pelajari konsep <strong>volume tabung</strong> melalui rumus, contoh, video, dan kalkulator interaktif.</p>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav>
+    <ul>
+      <li><a href="Index.html"><i class="bi bi-house-door-fill"></i>Beranda</a></li>
+      <li><a href="Materi Bilangan.html"><i class="bi bi-123"></i>Materi Bilangan</a></li>
+      <li><a href="Materi Geometri.html" class="active"><i class="bi bi-triangle"></i>Materi Geometri</a></li>
+      <li><a href="Kuis Bilangan.html"><i class="bi bi-puzzle-fill"></i>Kuis Bilangan</a></li>
+      <li><a href="Kuis Geometri.html"><i class="bi bi-lightning-fill"></i>Kuis Geometri</a></li>
+      <li><a href="Evaluasi Bilangan.html"><i class="bi bi-check-circle-fill"></i>Evaluasi Bilangan</a></li>
+      <li><a href="Evaluasi Geometri.html"><i class="bi bi-award-fill"></i>Evaluasi Geometri</a></li>
+    </ul>
+  </nav>
+
+  <!-- KONTEN UTAMA -->
+  <div class="container">
+<div class="materi-introduksi">
+
+ <div class="judul-bab">
+  <h3>🎯 MATERI</h3>
+  <h1>BAB II. MENGENAL TABUNG</h1>
+ </div>
+
+ <img src="Picture11.png" alt="Ilustrasi tabung" style="display:block;margin:20px auto;border-radius:12px;max-width:600px;width:100%;">
+
+ <p style="font-size:17px;line-height:1.7;text-align:justify;">
+ Pernahkah kalian berkunjung ke minimarket? Melihat apa sajakah kalian di sana? Banyak benda seperti kaleng susu, botol minuman, hingga tempat pensil logam ternyata berbentuk tabung, loh! 
+ Yuk, kita pelajari bagaimana cara menghitung <strong>volume dan luas permukaan tabung</strong>!
+ </p>
+
+ <div class="tujuan">
+  <h3>🎓 Tujuan Pembelajaran</h3>
+  <ul>
+   <li>Menentukan Luas Tabung</li>
+   <li>Menentukan Volume Tabung</li>
+   <li>Memecahkan soal cerita dari Luas dan Volume Tabung</li>
+  </ul>
+ </div>
+
+ <h1 style="margin-top:30px;">MENGENAL TABUNG</h1>
+ <img src="C:\Users\user\Downloads\Mat8.1\jjj.jpg"alt="Bentuk tabung" style="max-width:400px;display:block;margin:10px auto;">
+ <p style="font-size:17px;">Hai teman-teman! Sebelum menghitung luas dan volume, yuk kenali dulu apa itu tabung!</p>
+ 
+ <div class="kotak-teks">
+  <img src="Picture13.png" alt="Tabung contoh">
+  <p>Coba perhatikan benda-benda ini! “Semua benda ini mirip bentuknya, kan? Nah, bentuk itu disebut <strong>tabung!</strong>”</p>
+ </div>
+
+ <img src="Picture14.png" style="max-width:250px;margin:10px;"> 
+ <img src="Picture15.jpg" style="max-width:250px;margin:10px;">
+
+ <div class="ciri">
+  <h3>✨ Ciri-Ciri Tabung</h3>
+  <ul>
+   <li>Memiliki dua bidang alas dan tutup berbentuk lingkaran yang sama besar.</li>
+   <li>Memiliki selimut tabung yang bisa dibuka menjadi persegi panjang.</li>
+   <li>Tidak memiliki titik sudut.</li>
+   <li>Memiliki tinggi (<strong>t</strong>) yang merupakan jarak antara alas dan tutup.</li>
+  </ul>
+ </div>
+
+ <hr>
+ <h2>📐 Bagian-Bagian Tabung</h2>
+ <table class="tabel-bagian">
+  <thead>
+   <tr>
+    <th>Bagian</th><th>Keterangan</th><th>Bentuk</th>
+   </tr>
+  </thead>
+  <tbody>
+   <table border="1" align="center" cellpadding="8" cellspacing="0" style="text-align:center; border-collapse:collapse;">
+  <thead>
+    <tr>
+      <th>Bagian Tabung</th>
+      <th>Penjelasan</th>
+      <th>Bentuk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <div style="display:flex; flex-direction:column; align-items:center; text-align:center; font-family:Arial, sans-serif;">
+  <div style="font-weight:bold; margin-bottom:8px;">Bagian Tabung</div>
+  
+ <div style="display:flex; flex-direction:column; align-items:center; text-align:center; font-family:Arial, sans-serif;">
+
+  <h2 style="color:#1565c0;">Bagian-Bagian Tabung</h2>
+
+  <div style="display:flex; flex-direction:column; align-items:center; text-align:center; font-family:Arial, sans-serif;">
+  <div style="font-weight:bold; margin-bottom:8px;">Bagian Tabung</div>
+  
+  <div style="margin:6px 0;">
+    <strong>Alas & Tutup:</strong><br>
+    Dua bidang berbentuk lingkaran → <em>Lingkaran</em>
+  </div>
+
+  <div style="margin:6px 0;">
+    <strong>Selimut Tabung:</strong><br>
+    Bidang melengkung penghubung alas dan tutup → <em>Persegi panjang</em>
+  </div>
+
+  <div style="margin:6px 0;">
+    <strong>Tinggi (t):</strong><br>
+    Jarak antara alas dan tutup → <em>Garis tegak lurus</em>
+  </div>
+
+  <div style="margin:6px 0;">
+    <strong>Jari-jari (r):</strong><br>
+    Jarak dari pusat ke sisi lingkaran → <em>Garis dari pusat ke tepi</em>
+  </div>
+</div>
+
+
+
+
+
+ <p style="font-size:17px;line-height:1.7;text-align:justify;">
+ Dari jaring-jaring inilah nanti kita bisa menghitung <strong>luas permukaan tabung</strong>, yaitu gabungan dari dua lingkaran dan satu persegi panjang.
+ </p>
+
+ <h1 style="margin-top:20px;">Topik A. Luas Permukaan Tabung</h1>
+ <div>
+  <h3>✨ Pertanyaan Pemantik:</h3>
+  <ul>
+   <li>Apa itu luas permukaan tabung?</li>
+   <li>Bagaimana cara menghitungnya?</li>
+   <li>Bagaimana bentuk jaring-jaring tabung?</li>
+  </ul>
+ </div>
+
+ <img src="C:\Users\user\Downloads\Mat8.1\gbr tabung.jpg" alt="Kaleng tabung" style="display:block;margin:20px auto;max-width:500px;width:100%;">
+
+ <div class="ciri" style=>
+  <h3>📘 MATERI</h3>
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Setelah melihat kaleng minuman ini, ayo kita hitung berapa <strong>luas permukaan</strong> kaleng tersebut! 
+   Jika kita buka bagian <strong>selimutnya</strong>, bentuknya seperti <strong>persegi panjang</strong>. 
+   Luas seluruh permukaan tabung = 2 luas lingkaran + luas persegi panjang (selimut).
+  </p>
+
+  <strong>Contoh 1:</strong><br>
+  <img src="Picture17.png" style="max-width:250px;margin:10px;"> 
+  <img src="Picture18.png" style="max-width:250px;margin:10px;">
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+  <strong>Rumus luas permukaan tabung:</strong><br>
+  Luas permukaan = 2 × luas lingkaran + luas persegi panjang<br><br>
+  Luas lingkaran = π × r²<br>
+  Luas persegi panjang = keliling lingkaran × tinggi = 2πr × t<br><br>
+  Maka: <strong>L = 2πr(r + t)</strong><br><br>
+
+  <u>Keterangan:</u><br>
+  r = jari-jari alas<br>
+  t = tinggi tabung<br><br>
+
+  <strong>Contoh Perhitungan 1:</strong><br>
+  Diketahui: t = 18 cm, d = 7 cm → r = 3,5 cm<br>
+  L = 2 × 22/7 × 3,5 × (3,5 + 18)<br>
+  = 2 × 22/7 × 3,5 × 21,5<br>
+  = 473 cm²<br>
+  Jadi, luas permukaan kaleng ≈ <strong>473 cm²</strong><br><br>
+
+  <strong>Contoh 2:</strong><br>
+  Diketahui: d = 20 cm → r = 10 cm, t = 10 cm<br>
+  L = 2 × 3,14 × 10 × (10 + 10)<br>
+  = 2 × 3,14 × 10 × 20<br>
+  = 1256 cm²<br>
+  Jadi, luas permukaan kaleng ≈ <strong>1256 cm²</strong>
+  </p>
+
+
+ <h1 style="margin-top:20px;background:#fce4ec;">Topik B. Volume Tabung</h1>
+ <div>
+  <h3>✨ Pertanyaan Pemantik:</h3>
+  <ul>
+   <li>Apa yang dimaksud dengan volume tabung?</li>
+   <li>Bagaimana cara menghitung volume tabung dari benda di sekitar kita?</li>
+   <li>Mengapa hasil volume tabung bergantung pada jari-jari dan tinggi?</li>
+  </ul>
+ </div>
+  <img src="Picture19.png" alt="Kaleng tabung contoh volume" style="display:block;margin:20px auto;max-width:500px;width:100%;border-radius:12px;">
+  
+ <div class="ciri" style="margin-top:20px;">
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Sekarang kita akan jalan-jalan ke supermarket lagi. Suatu ketika Mr. Math sedang membantu kasir menata rak minuman. 
+   “Lihat, rak ini penuh dengan kaleng minuman berbentuk tabung!” kata Mr. Math. 
+   “Kira-kira, berapa banyak air yang bisa ditampung oleh satu kaleng ya?”
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Mr. Math pun mengajak kalian menghitung <strong>volume tabung</strong> dari kaleng tersebut. 
+   Volume menunjukkan seberapa banyak isi yang dapat ditampung di dalam suatu wadah.
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   “Volume tabung menunjukkan kapasitas isi di dalamnya,” jelas Mr. Math. 
+   “Kalau kamu isi kaleng dengan air sampai penuh, volume tabung adalah jumlah air yang bisa masuk ke dalam kaleng itu.”
+  </p>
+
+  <h3>📚 MATERI VOLUME</h3>
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Sebelum mengenal tabung, kalian perlu tahu bahwa:
+   <br><strong>Volume prisma = Luas alas × Tinggi</strong>
+   <br><br>
+   Nah, tabung juga termasuk bangun ruang seperti prisma, tapi alasnya berbentuk <strong>lingkaran</strong>. 
+   Karena alas tabung berbentuk lingkaran, maka:
+   <br><strong>Luas alas = πr²</strong>
+   <br><br>
+   Karena volume = luas alas × tinggi, maka:
+   <br><strong>V = πr² × t</strong>
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   “Ayo kita bayangkan tabung itu seperti tumpukan koin,” kata Mr. Math. 
+   “Setiap koin berbentuk lingkaran — itu luas alasnya. Kalau kamu tumpuk koin-koin itu sampai setinggi tabung, kamu sedang menghitung berapa banyak lingkaran yang membentuk tabung itu!”
+  </p>
+    <img src="Picture20.png" alt="Ilustrasi tumpukan lingkaran membentuk tabung" style="display:block;margin:20px auto;max-width:450px;width:100%;border-radius:12px;">
+
+    Dengan kata lain, <strong>tabung tersusun dari banyak lingkaran</strong> yang ditumpuk setinggi <strong>t</strong>. 
+    Semakin tinggi tabungnya, semakin banyak lingkaran yang bisa disusun, dan semakin besar volumenya.
+   </p>
+
+   <h3>🧮 Contoh 1</h3>
+   <p style="font-size:17px;line-height:1.7;text-align:justify;">
+    Kaleng minuman <strong>Berry Loops</strong> memiliki:
+    <ul style="font-size:17px;line-height:1.7; list-style-type: none; padding-left: 0;">
+     <li>Tinggi (<strong>t</strong>) = 18 cm</li>
+     <li>Diameter (<strong>d</strong>) = 7 cm → <strong>r</strong> = 3,5 cm</li>
+     <li>Gunakan π = 22/7</li>
+    </ul>
+   </p>
+  
+          <h4 style="color:var(--accent); margin-bottom: 5px;">Hitunglah volumenya!</h4>
+          
+          <p style="font-size:17px; font-weight: bold; margin-bottom: 5px;">Penyelesaian:</p>
+          
+          <div class="penyelesaian">
+              <p>Diketahui: r = 3,5 cm, t = 18 cm, π = 22/7</p>
+              <p>V = π × r² × t</p>
+              <p>V = 22/7 × 3,5 × 3,5 × 18</p>
+              <p>V = 22 × 0,5 × 3,5 × 18</p>
+              <p>V = 11 × 3,5 × 18</p>
+              <p>V = 38,5 × 18</p>
+              <p>V = 693</p>
+          </div>
+          
+          <p style="font-size:17px;line-height:1.7;text-align:justify; font-weight: bold;">
+              Jadi, volume kaleng minuman adalah 693 cm³.
+          </p>
+        
+          
+          <p style="font-size:17px; line-height:1.7; margin-top: 30px;">
+              Untuk Materi Luas permukaan dan volume tabung lebih mandalam, sobat Mr Math bisa cek di video ini: 
+              <br>
+              <a href="https://www.youtube.com/watch?v=HzShlGrbg80" target="_blank" style="color:var(--accent); font-weight: bold;">Video Pembelajaran Luas dan Volume Tabung</a>
+          </p>
+
+          <h1 style="margin-top:20px;">Topik C.<br>Memecahkan Masalah Luas dan Volume Tabung dalam Kehidupan Sehari-hari</h1>
+  <div>
+    <h3>✨ Pertanyaan Pemantik:</h3>
+     <ul>
+       <li>Di mana kita bisa menggunakan perhitungan luas dan volume tabung dalam kehidupan nyata?</li>
+       <li>Bagaimana cara menentukan bahan pembungkus atau isi wadah berbentuk tabung?</li>
+       <li>Mengapa penting memahami luas dan volume tabung dalam kegiatan sehari-hari?</li>
+    </ul>
+  </div>
+  
+  <img src="C:\Users\user\Downloads\Mat8.1\gbr tabung.jpg" alt="Kaleng tabung contoh volume" style="display:block;margin:20px auto;max-width:500px;width:100%;border-radius:12px;">
+
+  
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Hari ini, Mr. Math pergi ke Percetakan Kemasan. Ia melihat pekerja sedang menempelkan label pada kaleng minuman dan menuang air ke dalam botol berbentuk tabung.
+   “Wah, sepertinya mereka sedang menghitung luas label dan isi botol ya!” kata Mr. Math sambil tersenyum.
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+   Mr. Math kemudian mengajak kalian untuk memecahkan beberapa masalah nyata menggunakan konsep luas permukaan dan volume tabung.
+   Ia berkata:
+  “Kalian tahu nggak, dalam kehidupan sehari-hari kita sering menghitung luas untuk menutupi permukaan, dan volume untuk mengukur isi di dalamnya? Yuk, kita latihan!”
+ 
+  </p>
+
+  <p style="font-size:17px;line-height:1.7;text-align:justify;">
+  Sekarang kita akan jalan-jalan ke supermarket lagi. Suatu ketika Mr. Math sedang membantu kasir menata rak minuman.
+  “Lihat, rak ini penuh dengan kaleng minuman berbentuk tabung!” kata Mr. Math.
+  “Kira-kira, berapa banyak air yang bisa ditampung oleh satu kaleng ya?”
+  </p>
+  
+   <ul>
+       <ul style="text-align:left; font-family:Arial, sans-serif; line-height:1.6; margin-left:40px;">
+  <li>
+    <strong>Luas permukaan tabung</strong> digunakan untuk menghitung bahan pembungkus, cat, atau label. 
+    Misalnya: menghitung berapa luas stiker yang dibutuhkan untuk menutupi satu kaleng minuman.
+  </li>
+  
+  <li>
+    <strong>Volume tabung</strong> digunakan untuk menghitung kapasitas atau isi benda berbentuk tabung. 
+    Misalnya: menghitung banyaknya air, susu, atau minyak yang bisa dimasukkan ke dalam wadah tabung.
+  </li>
+</ul>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKPD Interaktif - Luas dan Volume Tabung</title>
+<style>
+  body{
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #fce4ec, #f3e5f5, #e3f2fd);
+    color: #222;
+    margin: 0; padding: 0;
+    animation: fadeIn 1.5s ease-in;
+  }
+
+  /* ==== HEADER BARU ==== */
+  header{
+    background: linear-gradient(90deg, #ec407a, #ab47bc, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 5px solid rgba(255,255,255,0.4);
+    animation: slideDown 1s ease-in-out;
+  }
+
+  @keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ==== NAVIGATION ==== */
+  nav{
+    display: flex;
+    justify-content: center;
+    background: #d81b60;
+    flex-wrap: wrap;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+  }
+  nav button{
+    background: none;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+  nav button:hover{
+    background: #ad1457;
+    transform: scale(1.05);
+  }
+
+  /* ==== CONTENT ==== */
+  section{
+    display: none;
+    padding: 20px;
+  }
+  .active{
+    display: block;
+    animation: fadeIn 1s ease;
+  }
+
+  .card{
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+
+  h2{
+    color: #e91e63;
+    border-left: 6px solid #e91e63;
+    padding-left: 10px;
+  }
+
+  textarea{
+    width: 100%;
+    min-height: 60px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  button.check{
+    background: linear-gradient(90deg, #e91e63, #9c27b0);
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button.check:hover{
+    background: linear-gradient(90deg, #d81b60, #7b1fa2);
+    transform: scale(1.05);
+  }
+
+  .result{
+    background: #fce4ec;
+    border-left: 4px solid #e91e63;
+    padding: 10px;
+    margin-top: 8px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<header>✨ LKPD INTERAKTIF ✨<br><span style="font-size:1.4rem; font-weight:500;">LUAS DAN VOLUME TABUNG</span></header>
+
+<nav>
+  <button onclick="show('lkpd1')">LKPD 1</button>
+  <button onclick="show('lkpd2')">LKPD 2</button>
+  <button onclick="show('lkpd3')">LKPD 3</button>
+</nav>
+
+<!-- ==== (Semua isi LKPD dari versi sebelumnya tetap sama) ==== -->
+<!-- Kamu bisa menempelkan isi LKPD 1, 2, dan 3 di sini seperti sebelumnya -->
+
+
+
+<!-- ===================== LKPD 1 ===================== -->
+<section id="lkpd1" class="active">
+  <h2>LKPD 1 - Menentukan Luas Permukaan Tabung</h2>
+
+  <div class="card">
+    <b>Tujuan Pembelajaran:</b><br>
+    Peserta didik dapat menentukan luas permukaan tabung dengan menggunakan rumus dan cara bersusun dengan benar (C3).
+  </div>
+
+  <div class="card">
+    <b>Petunjuk Pengerjaan:</b>
+    <ul style="text-align:left; line-height:1.6;">
+      <li>Baca dan pahami soal dengan teliti.</li>
+      <li>Diskusikan bersama kelompokmu.</li>
+      <li>Tuliskan langkah-langkah penyelesaian di kolom jawaban.</li>
+      <li>Gunakan π = 3,14 untuk perhitungan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <b>Soal 1:</b><br>
+    Sebuah tabung memiliki jari-jari 7 cm dan tinggi 10 cm. Hitunglah luas permukaan tabung tersebut!<br>
+    <textarea id="a11"></textarea>
+    <button class="check" onclick="showResult('r11')">Lihat Pembahasan</button>
+    <div id="r11" class="result">Rumus: L = 2πr(r + t) <br> L = 2 × 3,14 × 7 × (7 + 10) = 2 × 3,14 × 7 × 17 = 747,46 cm²</div>
+  </div>
+
+  <div class="card">
+    <b>Soal 2:</b><br>
+    Hitunglah luas permukaan tabung yang memiliki jari-jari 5 cm dan tinggi 12 cm!<br>
+    <textarea id="a12"></textarea>
+    <button class="check" onclick="showResult('r12')">Lihat Pembahasan</button>
+    <div id="r12" class="result">L = 2πr(r + t) = 2 × 3,14 × 5 × (5 + 12) = 2 × 3,14 × 5 × 17 = 534,5 cm²</div>
+  </div>
+</section>
+
+<!-- ===================== LKPD 2 ===================== -->
+<section id="lkpd2">
+  <h2>LKPD 2 - Menentukan Volume Tabung</h2>
+
+  <div class="card">
+    <b>Tujuan Pembelajaran:</b><br>
+    Peserta didik dapat menentukan volume tabung dengan menggunakan rumus dan langkah perhitungan dengan tepat (C3).
+  </div>
+
+  <div class="card">
+    <b>Petunjuk Pengerjaan:</b>
+    <ul style="text-align:left; line-height:1.6;">
+      <li>Gunakan rumus volume tabung: V = π × r² × t.</li>
+      <li>Gunakan π = 3,14 dan satuan cm³.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <b>Soal 1:</b><br>
+    Sebuah tabung memiliki jari-jari 7 cm dan tinggi 14 cm. Hitunglah volumenya!<br>
+    <textarea id="a21"></textarea>
+    <button class="check" onclick="showResult('r21')">Lihat Pembahasan</button>
+    <div id="r21" class="result">V = π × r² × t = 3,14 × 7² × 14 = 3,14 × 49 × 14 = 2156,44 cm³</div>
+  </div>
+
+  <div class="card">
+    <b>Soal 2:</b><br>
+    Sebuah kaleng berbentuk tabung memiliki jari-jari 6 cm dan tinggi 10 cm. Hitunglah volumenya!<br>
+    <textarea id="a22"></textarea>
+    <button class="check" onclick="showResult('r22')">Lihat Pembahasan</button>
+    <div id="r22" class="result">V = 3,14 × 6² × 10 = 3,14 × 36 × 10 = 1130,4 cm³</div>
+  </div>
+</section>
+
+<!-- ===================== LKPD 3 ===================== -->
+<section id="lkpd3">
+  <h2>LKPD 3 - Memecahkan Soal Cerita tentang Luas dan Volume Tabung</h2>
+
+  <div class="card">
+    <b>Tujuan Pembelajaran:</b><br>
+    Peserta didik dapat memecahkan masalah kehidupan sehari-hari yang berkaitan dengan luas dan volume tabung (C4).
+  </div>
+
+  <div class="card">
+    <b>Petunjuk Pengerjaan:</b>
+    <ul style="text-align:left; line-height:1.6;">
+      <li>Bacalah soal dengan cermat dan pahami konteksnya.</li>
+      <li>Tentukan apa yang diketahui dan ditanyakan.</li>
+      <li>Gunakan rumus luas atau volume tabung sesuai kebutuhan.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <b>Soal 1:</b><br>
+    Sebuah kaleng susu berbentuk tabung memiliki jari-jari 5 cm dan tinggi 12 cm.  
+    Hitunglah luas stiker yang diperlukan untuk menutupi seluruh permukaan kaleng tersebut!<br>
+    <textarea id="a31"></textarea>
+    <button class="check" onclick="showResult('r31')">Lihat Pembahasan</button>
+    <div id="r31" class="result">L = 2πr(r + t) = 2 × 3,14 × 5 × (5 + 12) = 534,5 cm²</div>
+  </div>
+
+  <div class="card">
+    <b>Soal 2:</b><br>
+    Sebuah drum air berbentuk tabung memiliki jari-jari 35 cm dan tinggi 100 cm.  
+    Hitunglah volume air maksimum yang dapat ditampung drum tersebut!<br>
+    <textarea id="a32"></textarea>
+    <button class="check" onclick="showResult('r32')">Lihat Pembahasan</button>
+    <div id="r32" class="result">V = π × r² × t = 3,14 × 35² × 100 = 3,14 × 1225 × 100 = 384,650 cm³ = 384,65 liter</div>
+  </div>
+</section>
+
+<script>
+function show(id){
+  document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+function showResult(id){
+  document.getElementById(id).style.display="block";
+}
+</script>
+</body>
+</html>
+

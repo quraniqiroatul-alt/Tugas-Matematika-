@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluasi Luas dan Volume Tabung</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+:root{
+  --accent:#e91e63;
+  --accent-light:#f48fb1;
+  --bg:#fdf1f5;
+}
+body{
+  font-family:"Poppins",sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:#222;
+}
+header{
+  background:linear-gradient(90deg,var(--accent),var(--accent-light));
+  color:white;text-align:center;
+  padding:30px 20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+nav{
+  background:linear-gradient(90deg,var(--accent),var(--accent-light));
+  display:flex;justify-content:center;flex-wrap:wrap;
+  padding:10px 5%;
+  border-bottom:4px solid #c2185b;
+}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:15px;margin:0;padding:0;}
+nav ul li a{
+  color:white;text-decoration:none;font-weight:600;
+  font-size:16px;padding:8px 16px;border-radius:12px;
+  transition:0.3s;display:flex;align-items:center;gap:6px;
+}
+nav ul li a:hover{background:rgba(255,255,255,0.25);transform:scale(1.08);}
+nav ul li a.active{background:#fff;color:var(--accent);font-weight:700;}
+.container{
+  max-width:900px;margin:30px auto;padding:20px;
+  background:white;border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+.quiz-item{margin-bottom:25px;text-align:left;}
+.quiz-item textarea{
+  width:100%;min-height:90px;border:1px solid #ccc;
+  border-radius:6px;padding:8px;font-size:14px;
+  background:repeating-linear-gradient(white,white 22px,#ccc 23px);
+  line-height:22px;
+}
+.feedback{margin-top:8px;padding:8px;border-radius:6px;font-style:italic;display:none;}
+.feedback.correct{background:#e8f5e9;border-left:4px solid #43a047;color:#1b5e20;}
+.feedback.wrong{background:#fff3e0;border-left:4px solid #f57c00;color:#e65100;}
+button{
+  padding:10px 16px;border:none;border-radius:6px;cursor:pointer;
+  font-weight:600;margin:5px;
+}
+.save-btn{background:#ec407a;color:white;}
+.save-btn:hover{background:#c2185b;}
+.print-btn{background:#43a047;color:white;}
+.print-btn:hover{background:#2e7d32;}
+.check-btn{background:#fbc02d;color:#212121;}
+.check-btn:hover{background:#f9a825;}
+.score-box{text-align:center;font-size:18px;font-weight:bold;margin-top:20px;}
+@media print{nav,header,.save-btn,.print-btn,.check-btn{display:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Evaluasi Luas dan Volume Tabung</h1>
+  <p>Uji pemahamanmu tentang luas permukaan dan volume tabung! 🧮</p>
+</header>
+
+<nav>
+    <ul>
+      <li><a href="Index.html"><i class="bi bi-house-door-fill"></i>Beranda</a></li>
+      <li><a href="Materi Bilangan.html"><i class="bi bi-123"></i>Materi Bilangan</a></li>
+      <li><a href="Materi Geometri.html"><i class="bi bi-triangle"></i>Materi Geometri</a></li>
+      <li><a href="Kuis Bilangan.html"><i class="bi bi-puzzle-fill"></i>Kuis Bilangan</a></li>
+      <li><a href="Kuis Geometri.html"><i class="bi bi-lightning-fill"></i>Kuis Geometri</a></li>
+      <li><a href="Evaluasi Bilangan.html"><i class="bi bi-check-circle-fill"></i>Evaluasi Bilangan</a></li>
+      <li><a href="Evaluasi Geometri.html" class="active"><i class="bi bi-award-fill"></i>Evaluasi Geometri</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+  <h2>🎯 Petunjuk Pengerjaan Evaluasi</h2>
+  <ul>
+    <li>📘 Bacalah setiap soal dengan teliti sebelum menjawab.</li>
+    <li>🖊 Tulis langkah dan hasil perhitungan di kolom yang tersedia.</li>
+    <li>✅ Klik <strong>Cek Nilai</strong> untuk melihat hasilmu.</li>
+  </ul>
+</div>
+
+<div class="container">
+<h3>Selamat Mengerjakan! 💫</h3>
+
+<form id="quizForm">
+  <div class="quiz-item"><p><strong>1.</strong> Sebutkan rumus untuk menghitung luas permukaan tabung dan jelaskan masing-masing bagiannya!</p><textarea name="soal1"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>2.</strong> Sebutkan rumus untuk menghitung volume tabung dan jelaskan arti setiap variabelnya!</p><textarea name="soal2"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>3.</strong> Sebuah tabung memiliki jari-jari 7 cm dan tinggi 10 cm. Hitunglah luas permukaan tabung tersebut!</p><textarea name="soal3"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>4.</strong> Sebuah tabung memiliki jari-jari 5 cm dan tinggi 12 cm. Hitunglah volumenya!</p><textarea name="soal4"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>5.</strong> Sebuah kaleng susu berbentuk tabung memiliki tinggi 14 cm dan diameter 10 cm. Tentukan luas permukaan kaleng tersebut!</p><textarea name="soal5"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>6.</strong> Sebuah tabung mempunyai volume 6.600 cm³ dan jari-jari 10 cm. Hitung tinggi tabung!</p><textarea name="soal6"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>7.</strong> Sebuah drum berbentuk tabung memiliki jari-jari 35 cm dan tinggi 100 cm. Hitung volume drum tersebut dalam liter!</p><textarea name="soal7"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>8.</strong> Sebuah wadah air berbentuk tabung tanpa tutup memiliki jari-jari 14 cm dan tinggi 20 cm. Hitung luas bagian permukaan yang dicat!</p><textarea name="soal8"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>9.</strong> Tinggi sebuah tabung dua kali jari-jarinya. Jika luas permukaannya 1.130,4 cm², berapakah jari-jari tabung tersebut?</p><textarea name="soal9"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>10.</strong> Sebuah pipa air berbentuk tabung memiliki jari-jari 10 cm dan tinggi 50 cm. Berapa liter air yang dapat ditampung pipa tersebut?</p><textarea name="soal10"></textarea><div class="feedback"></div></div>
+
+  <div style="text-align:center;">
+    <button type="button" class="check-btn" onclick="checkAnswers()">✅ Cek Nilai</button>
+    <button type="button" class="save-btn" onclick="saveAnswers()">💾 Simpan Jawaban</button>
+    <button type="button" class="print-btn" onclick="window.print()">🖨 Cetak</button>
+  </div>
+</form>
+
+<div class="score-box" id="scoreBox"></div>
+</div>
+
+<script>
+const answers = {
+  soal1:{pembahasan:"L = 2πr(r + t). Dua lingkaran (2πr²) dan selimut (2πrt)."},
+  soal2:{pembahasan:"V = πr²t, r = jari-jari, t = tinggi, πr² = luas alas."},
+  soal3:{pembahasan:"2 × 3.14 × 7 × (7 + 10) = 747.32 cm²"},
+  soal4:{pembahasan:"3.14 × 5² × 12 = 942 cm³"},
+  soal5:{pembahasan:"2 × 3.14 × 5 × (5 + 14) = 596.6 cm²"},
+  soal6:{pembahasan:"t = 6.600 ÷ (3.14 × 10²) = 21.02 cm"},
+  soal7:{pembahasan:"3.14 × 35² × 100 = 384.650 cm³ = 384.65 liter"},
+  soal8:{pembahasan:"πr² + 2πrt = 3.14×14² + 2×3.14×14×20 = 2.373.84 cm²"},
+  soal9:{pembahasan:"t=2r, L=2πr(r+t)=1.130.4 → r ≈ 7.75 cm"},
+  soal10:{pembahasan:"3.14×10²×50=15.700 cm³ = 15.7 liter"}
+};
+
+function checkAnswers(){
+  let score=0,total=10;
+  document.querySelectorAll('.feedback').forEach(f=>f.style.display='none');
+  for(const key in answers){
+    const textarea=document.querySelector(`[name="${key}"]`);
+    const feedback=textarea.nextElementSibling;
+    if(textarea.value.trim().length>0){
+      score++;
+      feedback.className="feedback correct";
+      feedback.textContent="✅ Jawaban telah diisi. "+answers[key].pembahasan;
+    }else{
+      feedback.className="feedback wrong";
+      feedback.textContent="❌ Belum dijawab. "+answers[key].pembahasan;
+    }
+    feedback.style.display='block';
+  }
+  const nilai=(score/total)*100;
+  document.getElementById("scoreBox").innerHTML=`✅ Terjawab: ${score} / ${total} | Nilai: <span style="color:#e91e63;">${nilai.toFixed(0)}</span>`;
+}
+
+function saveAnswers(){
+  const data={};
+  new FormData(document.getElementById('quizForm')).forEach((v,k)=>data[k]=v);
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='Jawaban_Evaluasi_Tabung.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  alert("✅ Jawaban berhasil disimpan!");
+}
+</script>
+</body>
+</html>

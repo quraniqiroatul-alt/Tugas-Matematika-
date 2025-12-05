@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluasi Perkalian dan Pembagian Bilangan Cacah</title>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+:root{
+  --accent:#e91e63;
+  --accent-light:#f48fb1;
+  --bg:#fdf1f5;
+}
+
+/* === GLOBAL === */
+body {
+  font-family:"Poppins",sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:#222;
+}
+
+ /* ==== HEADER BARU ==== */
+  header{
+    background: linear-gradient(90deg, #ec407a, #ab47bc, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 5px solid rgba(255,255,255,0.4);
+    animation: slideDown 1s ease-in-out;
+}
+header h1 { margin: 0; font-size: 2rem; }
+header p { margin: 10px 0 0; font-size: 1rem; }
+
+/* === NAVBAR === */
+nav {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 5%;
+  border-bottom: 4px solid #c2185b;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+nav ul li a:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.08);
+}
+nav ul li a.active {
+  background: #fff;
+  color: var(--accent);
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* === CONTAINER === */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+h2, h3 { color: var(--accent); text-align:center; }
+
+/* === QUIZ AREA === */
+.quiz-item { margin-bottom: 25px; text-align: left; }
+.quiz-item textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 14px;
+  background: repeating-linear-gradient(white, white 22px, #ccc 23px);
+  line-height: 22px;
+}
+.feedback {
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  font-style: italic;
+  display: none;
+}
+.feedback.correct { background: #e8f5e9; border-left: 4px solid #43a047; color: #1b5e20; }
+.feedback.wrong { background: #fff3e0; border-left: 4px solid #f57c00; color: #e65100; }
+
+/* === BUTTONS === */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 5px;
+}
+.save-btn { background: #ec407a; color: white; }
+.save-btn:hover { background: #c2185b; }
+.print-btn { background: #43a047; color: white; }
+.print-btn:hover { background: #2e7d32; }
+.check-btn { background: #fbc02d; color: #212121; }
+.check-btn:hover { background: #f9a825; }
+
+.score-box {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+@media print {
+  nav, header, .save-btn, .print-btn, .check-btn { display: none; }
+  body { background: white; }
+  .container { box-shadow: none; }
+}
+
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- === HEADER === -->
+<header>
+  <h1>Evaluasi Perkalian dan Pembagian Bilangan Cacah</h1>
+  <p>Uji pemahamanmu tentang perkalian, pembagian, dan soal cerita! 💪</p>
+</header>
+
+<!-- === NAVIGASI === -->
+<nav>
+    <ul>
+      <li><a href="Index.html"><i class="bi bi-house-door-fill"></i>Beranda</a></li>
+      <li><a href="Materi Bilangan.html"><i class="bi bi-123"></i>Materi Bilangan</a></li>
+      <li><a href="Materi Geometri.html"><i class="bi bi-triangle"></i>Materi Geometri</a></li>
+      <li><a href="Kuis Bilangan.html"><i class="bi bi-puzzle-fill"></i>Kuis Bilangan</a></li>
+      <li><a href="Kuis Geometri.html"><i class="bi bi-lightning-fill"></i>Kuis Geometri</a></li>
+      <li><a href="Evaluasi Bilangan.html" class="active"><i class="bi bi-check-circle-fill"></i>Evaluasi Bilangan</a></li>
+      <li><a href="Evaluasi Geometri.html"><i class="bi bi-award-fill"></i>Evaluasi Geometri</a></li>
+    </ul>
+  </nav>
+
+<!-- === PETUNJUK === -->
+<div class="container">
+  <h2>🎯 Petunjuk Pengerjaan Evaluasi</h2>
+  <ul>
+    <li>👧 Bacalah setiap soal dengan teliti sebelum menjawab!</li>
+    <li>🖊 Tulis jawabanmu dengan rapi di kolom yang tersedia.</li>
+    <li>✅ Klik tombol <strong>Cek Nilai</strong> untuk melihat hasilmu.</li>
+    <li>💾 Klik <strong>Simpan Jawaban</strong> jika ingin dikumpulkan ke guru.</li>
+    <li>✨ Kerjakan dengan jujur dan semangat!</li>
+  </ul>
+</div>
+
+<div class="container">
+<h3>Selamat Mengerjakan! 💫</h3>
+
+<form id="quizForm">
+
+  <div class="quiz-item"><p><strong>1.</strong> Hitunglah hasil dari 234 × 32 dengan cara bersusun ke bawah!</p><textarea name="soal1"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>2.</strong> Hitunglah hasil dari 456 × 27 dengan cara bersusun ke bawah!</p><textarea name="soal2"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>3.</strong> Hitunglah hasil dari 1.245 × 18 dengan cara bersusun ke bawah!</p><textarea name="soal3"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>4.</strong> Hitunglah hasil dari 8.568 ÷ 12 dengan cara bersusun ke bawah!</p><textarea name="soal4"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>5.</strong> Hitunglah hasil dari 9.936 ÷ 24 dengan cara bersusun ke bawah!</p><textarea name="soal5"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>6.</strong> Hitunglah hasil dari 6.300 ÷ 15 dengan cara bersusun ke bawah!</p><textarea name="soal6"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>7.</strong> Sebuah toko menjual 250 bungkus mi setiap hari. Dalam 28 hari, berapa bungkus mi yang terjual?</p><textarea name="soal7"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>8.</strong> Seorang petani memiliki 8 kebun. Tiap kebun menghasilkan 1.275 buah tomat. Berapa jumlah seluruh tomat yang dipanen?</p><textarea name="soal8"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>9.</strong> Sebuah pabrik membuat 96.000 botol minuman. Jika setiap truk membawa 4.000 botol, berapa truk yang dibutuhkan?</p><textarea name="soal9"></textarea><div class="feedback"></div></div>
+
+  <div class="quiz-item"><p><strong>10.</strong> Andi membeli 48 kotak kue. Setiap kotak berisi 36 kue. Kue tersebut dibagikan kepada 72 anak sama rata. Berapa kue yang diterima tiap anak?</p><textarea name="soal10"></textarea><div class="feedback"></div></div>
+
+  <div style="text-align:center;">
+    <button type="button" class="check-btn" onclick="checkAnswers()">✅ Cek Nilai</button>
+    <button type="button" class="save-btn" onclick="saveAnswers()">💾 Simpan Jawaban</button>
+    <button type="button" class="print-btn" onclick="window.print()">🖨 Cetak</button>
+  </div>
+</form>
+
+<div class="score-box" id="scoreBox"></div>
+</div>
+
+<!-- === SCRIPT === -->
+<script>
+const answers = {
+  soal1: {correct:["7488"], pembahasan:"234 × 32 = 7.488"},
+  soal2: {correct:["12312"], pembahasan:"456 × 27 = 12.312"},
+  soal3: {correct:["22410"], pembahasan:"1.245 × 18 = 22.410"},
+  soal4: {correct:["714"], pembahasan:"8.568 ÷ 12 = 714"},
+  soal5: {correct:["414"], pembahasan:"9.936 ÷ 24 = 414"},
+  soal6: {correct:["420"], pembahasan:"6.300 ÷ 15 = 420"},
+  soal7: {correct:["7000"], pembahasan:"250 × 28 = 7.000 bungkus mi"},
+  soal8: {correct:["10200"], pembahasan:"1.275 × 8 = 10.200 buah tomat"},
+  soal9: {correct:["24"], pembahasan:"96.000 ÷ 4.000 = 24 truk"},
+  soal10:{correct:["24"], pembahasan:"48 × 36 = 1.728, 1.728 ÷ 72 = 24 kue per anak"}
+};
+
+const pujian=["🌟 Hebat sekali!","🎉 Luar biasa!","💪 Keren, terus pertahankan!","👏 Mantap, kamu paham konsepnya!"];
+const semangat=["💪 Ayo semangat belajar lagi!","✨ Jangan menyerah, kamu pasti bisa!","🔥 Coba ulangi lagi ya!","📘 Pelajari kembali pembahasan di atas!"];
+
+function normalize(text){return text.toLowerCase().replace(/\s+/g,"").replace(/[^0-9a-z]/g,"");}
+
+function checkAnswers(){
+  let score=0,total=10;
+  document.querySelectorAll('.feedback').forEach(fb=>fb.style.display='none');
+  for(const key in answers){
+    const textarea=document.querySelector(`[name="${key}"]`);
+    const feedback=textarea.nextElementSibling;
+    const userAnswer=normalize(textarea.value);
+    const correct=answers[key].correct;
+    if(correct.some(ans=>userAnswer.includes(normalize(ans)))){
+      score++;
+      feedback.className="feedback correct";
+      feedback.textContent=pujian[Math.floor(Math.random()*pujian.length)];
+    } else {
+      feedback.className="feedback wrong";
+      feedback.innerHTML="❌ Jawaban kurang tepat. " + answers[key].pembahasan + " " + semangat[Math.floor(Math.random()*semangat.length)];
+    }
+    feedback.style.display='block';
+  }
+  const nilai=(score/total)*100;
+  document.getElementById("scoreBox").innerHTML=`✅ Benar: ${score} | ❌ Salah: ${total-score}<br>Nilai Akhir: <span style="color:#e91e63;">${nilai.toFixed(0)}</span>`;
+}
+
+function saveAnswers(){
+  const data={};
+  new FormData(document.getElementById('quizForm')).forEach((v,k)=>data[k]=v);
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='Jawaban_Evaluasi_Perkalian_Pembagian.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  alert("✅ Jawaban berhasil disimpan!");
+}
+</script>
+
+</body>
+</html>

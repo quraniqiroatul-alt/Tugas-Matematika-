@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Beranda - KPK & Jajar Genjang</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    :root{
+      --accent:#eb61bd;      /* biru tua utama */
+      --accent-light:#c01ea5;/* biru muda gradasi */
+      --muted:#666;
+      --card:#fff;
+      --bg:#f4f7fb;
+    }
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #111;
+  background: url("img/Backgound MTK.webp") no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2); /* 80% transparan */
+  z-index: -1;
+}
+
+    @keyframes bgMove {
+      from {background-position:20% 30%, 80% 70%;}
+      to {background-position:40% 50%, 60% 40%;}
+    }
+
+    /* ==== HEADER BARU ==== */
+  header{
+    background: linear-gradient(90deg, #ec407a, #ab47bc, #42a5f5);
+    color: white;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    border-bottom: 5px solid rgba(255,255,255,0.4);
+    animation: slideDown 1s ease-in-out;
+  }
+
+    header h1{
+      margin:0;
+      font-size:1.9rem;
+      letter-spacing:0.5px;
+    }
+    header h3{
+      margin:8px 0 10px;
+      font-weight:500;
+    }
+    header p{
+      margin:10px 0 20px;
+      font-size:1rem;
+    }
+
+    /* ====== NAVBAR ====== */
+    nav {
+      margin-top: -10px; /* tarik navbar lebih dekat ke header */
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 5%;
+      border-bottom: 4px solid #c01ea5;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    nav ul li a:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.08);
+    }
+    nav ul li a.active {
+      background: #fff;
+      color: var(--accent);
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    /* ====== MAIN CONTENT ====== */
+    .container{max-width:960px;margin:auto;padding:16px}
+    main{
+      background:var(--card);
+      padding:24px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* ====== GAMBAR HEADER ====== */
+    main img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 16px 0;
+    }
+
+    /* ====== IDENTITAS ANGGOTA ====== */
+    .identitas {
+      display: flex;
+      align-items: center;
+      background: #e3f2fd;
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin: 15px 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+
+    .identitas:hover {
+      transform: scale(1.02);
+    }
+
+    .identitas img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 18px;
+      border: 3px solid #c01ea5;
+    }
+
+    .identitas ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+    }
+
+    .identitas li {
+      margin: 4px 0;
+    }
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      margin-top:20px;
+      font-size:0.9rem;
+    }
+
+    /* ====== BACKGROUND ICONS ====== */
+    .math-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .math-bg svg {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.15;
+      animation: floatMath 12s infinite ease-in-out;
+    }
+    @keyframes floatMath {
+      0% { transform: translateY(0) rotate(0deg);}
+      50% { transform: translateY(-20px) rotate(20deg);}
+      100% { transform: translateY(0) rotate(0deg);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== ANIMATED ICONS ====== -->
+  <div class="math-bg">
+    <svg style="top:10%;left:15%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">➕</text></svg>
+    <svg style="top:40%;left:70%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">✖</text></svg>
+    <svg style="top:70%;left:30%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">➗</text></svg>
+    <svg style="top:25%;left:80%;" viewBox="0 0 64 64"><text x="0" y="50" font-size="48">➖</text></svg>
+  </div>
+
+  <!-- ====== HEADER ====== -->
+  <header>
+    <div class="container">
+      <h1>Pengembangan Pembelajaran Matematika SD</h1>
+      <h3>Dosen Pengampu : Dr. Dyah Triwahyuningtyas, S.Si., M.Pd.</h3>
+      <p>
+        Kelompok : <strong>Matematika 4</strong> | 
+        Kelas <strong>D2023</strong> | 
+        Materi Bilangan: <strong>Bilangan Cacah</strong> | 
+        Materi Geometri: <strong>Tabung</strong>
+      </p>
+    </div>
+  </header>
+
+  <!-- ====== NAVIGASI ====== -->
+  <nav>
+    <ul>
+      <li><a href="Index.html" class="active"><i class="bi bi-house-door-fill"></i>Beranda</a></li>
+      <li><a href="Materi Bilangan.html"><i class="bi bi-123"></i>Materi Bilangan</a></li>
+      <li><a href="Materi Geometri.html"><i class="bi bi-triangle"></i>Materi Geometri</a></li>
+      <li><a href="Kuis Bilangan.html"><i class="bi bi-puzzle-fill"></i>Kuis Bilangan</a></li>
+      <li><a href="Kuis Geometri.html"><i class="bi bi-lightning-fill"></i>Kuis Geometri</a></li>
+      <li><a href="Evaluasi Bilangan.html"><i class="bi bi-check-circle-fill"></i>Evaluasi Bilangan</a></li>
+      <li><a href="Evaluasi Geometri.html"><i class="bi bi-award-fill"></i>Evaluasi Geometri</a></li>
+    </ul>
+  </nav>
+
+  <!-- ====== MAIN CONTENT ====== -->
+  <div class="container">
+    <main>
+      <h2>Selamat Datang di Website Pembelajaran Matematika!</h2>
+      <img src="C:\Users\user\Downloads\Mat8\header.png" alt="Foto Header">
+      <p>Website ini membantu siswa kelas 6 memahami <strong>Bilangan Cacah</strong> serta <strong>Volume dan Luas Tabung</strong> melalui materi teks, video pembelajaran, dan LKPD interaktif.</p>
+
+      <h3>Profil Kelompok</h3>
+
+      <div class="identitas">
+        <img src="C:\Users\user\Downloads\Mat8\ftoku.jpg" alt="qiroatul">
+        <ul>
+          <li><strong>Nama :</strong> Qiroatul Qur'ani</li>
+          <li><strong>NIM :</strong> 230401140097</li>
+        </ul>
+      </div>
+
+      <div class="identitas">
+        <img src="C:\Users\user\Downloads\Mat8\gio.jpg" alt="gio">
+        <ul>
+          <li><strong>Nama :</strong> Giovanni Tabunggi</li>
+          <li><strong>NIM :</strong> 230401140107</li>
+        </ul>
+      </div>
+
+      <div class="identitas">
+        <img src="C:\Users\user\Downloads\Mat8\sherly.jpg"alt="sherly">
+        <ul>
+          <li><strong>Nama :</strong> Sherly Rosita</li>
+          <li><strong>NIM :</strong> 230401140104</li>
+        </ul>
+      </div>
+    </main>
+    <footer>© 2025 — Kelompok Matematika 4 D2023</footer>
+  </div>
+
+  <!-- ====== SCRIPT ACTIVE NAV ====== -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    const menuLinks = document.querySelectorAll("nav ul li a");
+    menuLinks.forEach(link => {
+      if(link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>
